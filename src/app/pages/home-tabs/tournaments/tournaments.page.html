@@ -1,0 +1,91 @@
+<ion-content>
+  <div id="background">
+    <mat-tab-group>
+      <mat-tab label="Torneos">
+        <div id="current-tournaments">
+          <div class="section-header">
+            <mat-label>Torneos actuales</mat-label>
+
+            <span class="separator"></span>
+
+            <button mat-flat-button id="current-tournaments-filter">Filtros</button>
+          </div>
+
+          <div class="list-container">
+            <div mat-ripple *ngFor="let item of [0, 0, 0]" class="section-list">
+              <div class="stat">
+                <mat-icon>person</mat-icon>
+                <mat-label>4</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <div class="details">
+                <mat-label>Torneo verano 2023</mat-label>
+                <mat-label>26 junio 2023</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <div class="stat">
+                <mat-icon>sports_esports</mat-icon>
+                <mat-label>4</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <mat-icon>chevron_right</mat-icon>
+            </div>
+          </div>
+        </div>
+
+        <ion-action-sheet trigger="current-tournaments-filter" header="Filtrar torneos actuales" class="action-sheet"
+          [buttons]="filterButtons">
+        </ion-action-sheet>
+      </mat-tab>
+
+      <mat-tab label="Historial">
+        <div id="tournamets-history">
+          <div class="section-header">
+            <mat-label>Historial de torneos</mat-label>
+
+            <span class="separator"></span>
+
+            <button mat-flat-button id="tournaments-history-filter">Filtros</button>
+          </div>
+
+          <div class="list-container">
+            <div mat-ripple *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]" class="section-list">
+              <div class="stat">
+                <mat-icon>person</mat-icon>
+                <mat-label>4</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <div class="details">
+                <mat-label>Torneo verano 2023</mat-label>
+                <mat-label>26 junio 2023</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <div class="stat">
+                <mat-icon>sports_esports</mat-icon>
+                <mat-label>4</mat-label>
+              </div>
+
+              <span class="separator"></span>
+
+              <mat-icon>chevron_right</mat-icon>
+            </div>
+          </div>
+        </div>
+
+        <ion-action-sheet trigger="tournaments-history-filter" header="Filtrar historial de torneos"
+          class="action-sheet" [buttons]="filterButtons">
+        </ion-action-sheet>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-content>
+  <div id="header">
+    <img
+      [src]="utils.systemTheme == utils.themes.DARK ? 'assets/images/Icon-white.png' : 'assets/images/Icon-black.png'">
+  </div>
+
+  <div id="register-form">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'email' | translate }}</mat-label>
+      <input matInput placeholder="example@gmail.com">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'username' | translate }}</mat-label>
+      <input matInput placeholder="UNO Master">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'password' | translate }}</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="••••••••••••••">
+      <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'repeat_password' | translate }}</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="••••••••••••••">
+      <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+    </mat-form-field>
+
+    <button mat-flat-button color="accent" id="register">
+      <mat-label>{{ 'register' | translate }}</mat-label>
+    </button>
+  </div>
+
+  <div id="footer">
+    <div>
+      <mat-label>{{ 'have_account_label' | translate }}</mat-label>
+      <a [routerLink]="['/login']">{{ 'have_account_link' | translate }}</a>
+    </div>
+  </div>
+</ion-content>

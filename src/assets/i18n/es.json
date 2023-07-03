@@ -1,0 +1,15 @@
+{
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "repeat_password": "Repetir contraseña",
+  "login": "Iniciar sesión",
+  "register": "Registrar cuenta",
+  "other_options": "Otras opciones",
+  "login_google": "Iniciar sesión con Google",
+  "reset_password": "Reestablecer contraseña",
+  "new_user_label": "¿Nuevo usuario?",
+  "new_user_link": "Crear cuenta",
+  "username": "Nombre de usuario",
+  "have_account_label": "¿Ya tienes una cuenta?",
+  "have_account_link": "Iniciar sesión"
+}

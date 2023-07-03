@@ -1,0 +1,7 @@
+{
+  "name": "UNO FIGHTING",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

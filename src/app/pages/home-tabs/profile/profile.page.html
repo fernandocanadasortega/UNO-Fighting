@@ -1,0 +1,64 @@
+<div id="background">
+  <div id="profile-header">
+    <div class="stat">
+      <mat-label>23</mat-label>
+      <mat-label>Victorias</mat-label>
+    </div>
+
+    <div id="profile-image-options" class="image">
+      <img src="assets/images/profile.jpg" alt="profile">
+
+      <div id="edit-icon">
+        <mat-icon>edit</mat-icon>
+      </div>
+    </div>
+
+    <div class="stat">
+      <mat-label>50%</mat-label>
+      <mat-label>Winrate</mat-label>
+    </div>
+  </div>
+
+  <div id="profile-name">
+    <mat-label>Napo</mat-label>
+    <mat-label>thenapo212@gmail.com</mat-label>
+  </div>
+
+  <div class="setting-group">
+    <div class="header">
+      <mat-label>General</mat-label>
+    </div>
+
+    <div matRipple class="item" (click)="navigateUserData()">
+      <mat-icon>person</mat-icon>
+      <mat-label>Información personal</mat-label>
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+
+    <div matRipple class="item" (click)="navigateUserStats()">
+      <mat-icon>bar_chart</mat-icon>
+      <mat-label>Estadísticas personales</mat-label>
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <div class="header">
+      <mat-label>Otros</mat-label>
+    </div>
+
+    <div matRipple class="item" (click)="sendBugReport()">
+      <mat-icon>bug_report</mat-icon>
+      <mat-label>Reportar un error</mat-label>
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+
+    <div matRipple class="item" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <mat-label>Cerrar sesión</mat-label>
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+  </div>
+</div>
+
+<ion-action-sheet trigger="profile-image-options" header="Avatar" [buttons]="profileImageButtons"></ion-action-sheet>

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Información personal</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">
+        <ion-icon name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="background">
+    <div class="header">
+      <mat-label>General</mat-label>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput readonly [(ngModel)]="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput [(ngModel)]="username" placeholder="UNO Master">
+    </mat-form-field>
+
+    <div class="header">
+      <mat-label>Contraseña</mat-label>
+      <mat-label class="subheader">Dejar vacío si no se va a cambiar</mat-label>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" placeholder="••••••••••••••">
+      <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Repetir contraseña</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="repeatPassword" placeholder="••••••••••••••">
+      <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+    </mat-form-field>
+  </div>
+</ion-content>

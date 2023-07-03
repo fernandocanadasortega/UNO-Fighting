@@ -1,0 +1,50 @@
+<ion-content>
+  <div id="header">
+    <img
+      [src]="utils.systemTheme == utils.themes.DARK ? 'assets/images/Icon-white.png' : 'assets/images/Icon-black.png'">
+  </div>
+
+  <div id="login-form">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'email' | translate }}</mat-label>
+      <input matInput placeholder="example@gmail.com">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'password' | translate }}</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="••••••••••••••">
+      <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+    </mat-form-field>
+
+    <button mat-flat-button color="accent" id="login" (click)="authUser()">
+      <mat-label>{{ 'login' | translate }}</mat-label>
+    </button>
+
+    <div id="other-login-options">
+      <span></span>
+      <mat-label>{{ 'other_options' | translate }}</mat-label>
+      <span></span>
+    </div>
+
+    <button mat-stroked-button id="google-login">
+      <div class="inner">
+        <img src="assets/images/google-logo.png">
+        <mat-label>{{ 'login_google' | translate }}</mat-label>
+      </div>
+    </button>
+
+    <button mat-stroked-button id="reset-password" (click)="resetPassword()">
+      <div class="inner">
+        <mat-icon>lock_reset</mat-icon>
+        <mat-label>{{ 'reset_password' | translate }}</mat-label>
+      </div>
+    </button>
+  </div>
+
+  <div id="footer">
+    <div>
+      <mat-label>{{ 'new_user_label' | translate }}</mat-label>
+      <a [routerLink]="['/register']">{{ 'new_user_link' | translate }}</a>
+    </div>
+  </div>
+</ion-content>

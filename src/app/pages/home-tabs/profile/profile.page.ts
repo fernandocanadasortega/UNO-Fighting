@@ -6,7 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialComponentsModule } from '../../../material-components.module';
 import { UtilsService } from '../../../services/utils.service';
 import { MatDialog } from '@angular/material/dialog';
-import { BugReportComponent } from 'src/app/components/bug-report/bug-report.component';
 
 @Component({
   selector: 'app-profile',
@@ -51,7 +50,7 @@ export class ProfilePage implements OnInit {
   }
 
   public sendBugReport() {
-    this.dialog.open(BugReportComponent);
+    this.utils.navigateReplacingUrl('/profile/bug-report');
   }
 
   public logout() {

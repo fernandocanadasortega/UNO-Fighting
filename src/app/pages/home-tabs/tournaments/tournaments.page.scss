@@ -42,7 +42,8 @@
   .stat {
     display: flex;
     align-items: center;
-    margin-right: 5px;
+    margin-left: 5px;
+    margin-right: 40px;
 
     mat-icon {
       margin-right: 10px;
@@ -56,6 +57,7 @@
   .details {
     display: flex;
     flex-flow: column;
+    flex: 1 1 auto;
 
     mat-label {
       color: var(--ion-color-medium);

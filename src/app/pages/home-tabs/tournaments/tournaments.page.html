@@ -8,7 +8,7 @@
 
             <span class="separator"></span>
 
-            <button mat-flat-button id="current-tournaments-filter">Filtros</button>
+            <button mat-flat-button (click)="showFilters('Filtrar torneos actuales')">Filtros</button>
           </div>
 
           <div class="list-container">
@@ -18,30 +18,15 @@
                 <mat-label>4</mat-label>
               </div>
 
-              <span class="separator"></span>
-
               <div class="details">
                 <mat-label>Torneo verano 2023</mat-label>
                 <mat-label>26 junio 2023</mat-label>
               </div>
 
-              <span class="separator"></span>
-
-              <div class="stat">
-                <mat-icon>sports_esports</mat-icon>
-                <mat-label>4</mat-label>
-              </div>
-
-              <span class="separator"></span>
-
               <mat-icon>chevron_right</mat-icon>
             </div>
           </div>
         </div>
-
-        <ion-action-sheet trigger="current-tournaments-filter" header="Filtrar torneos actuales" class="action-sheet"
-          [buttons]="filterButtons">
-        </ion-action-sheet>
       </mat-tab>
 
       <mat-tab label="Historial">
@@ -51,7 +36,7 @@
 
             <span class="separator"></span>
 
-            <button mat-flat-button id="tournaments-history-filter">Filtros</button>
+            <button mat-flat-button (click)="showFilters('Filtrar historial de torneos')">Filtros</button>
           </div>
 
           <div class="list-container">
@@ -61,30 +46,15 @@
                 <mat-label>4</mat-label>
               </div>
 
-              <span class="separator"></span>
-
               <div class="details">
                 <mat-label>Torneo verano 2023</mat-label>
                 <mat-label>26 junio 2023</mat-label>
               </div>
 
-              <span class="separator"></span>
-
-              <div class="stat">
-                <mat-icon>sports_esports</mat-icon>
-                <mat-label>4</mat-label>
-              </div>
-
-              <span class="separator"></span>
-
               <mat-icon>chevron_right</mat-icon>
             </div>
           </div>
         </div>
-
-        <ion-action-sheet trigger="tournaments-history-filter" header="Filtrar historial de torneos"
-          class="action-sheet" [buttons]="filterButtons">
-        </ion-action-sheet>
       </mat-tab>
     </mat-tab-group>
   </div>

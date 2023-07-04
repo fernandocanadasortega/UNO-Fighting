@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Reportar un error</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="send()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="background">
+    <mat-form-field appearance="outline">
+      <mat-label>¿Que ha pasado?</mat-label>
+      <input matInput [(ngModel)]="description" placeholder="Fallo al crear un torneo">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Detalles del error</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" [(ngModel)]="details"
+        placeholder="Explicación detallada"></textarea>
+    </mat-form-field>
+  </div>
+</ion-content>

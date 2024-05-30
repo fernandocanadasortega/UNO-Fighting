@@ -21,29 +21,7 @@
   }
 }
 
-#background button#qr-search {
+#background button#create-tournament {
   margin-top: 10px;
   font-size: 16px;
-}
-
-#background #other-search-options {
-  display: flex;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 10px;
-
-  span {
-    flex: 1 1 auto;
-    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.8);
-  }
-
-  mat-label {
-    font-size: 15px;
-    margin: 0px 12px;
-    color: var(--ion-color-medium);
-  }
-}
-
-#manual-search mat-label {
-  color: rgba(var(--ion-color-dark-rgb), 0.87);
 }

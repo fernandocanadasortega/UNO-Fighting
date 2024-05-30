@@ -18,13 +18,22 @@ export class ProfilePage implements OnInit {
 
   public profileImageButtons: any[] = [
     {
-      text: 'Cambiar avatar',
+      icon: 'camera',
+      text: 'Abrir cámara',
       data: {
-        action: 'change',
+        action: 'photo-image',
       },
     },
     {
-      text: 'Borrar avatar',
+      icon: 'images',
+      text: 'Seleccionar desde galería',
+      data: {
+        action: 'galery-image',
+      },
+    },
+    {
+      icon: 'trash',
+      text: 'Eliminar imagen de perfil',
       role: 'destructive',
       data: {
         action: 'delete',

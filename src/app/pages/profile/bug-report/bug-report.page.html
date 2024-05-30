@@ -5,12 +5,6 @@
     </ion-buttons>
 
     <ion-title>Reportar un error</ion-title>
-
-    <ion-buttons slot="end">
-      <ion-button (click)="send()">
-        <ion-icon name="send"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -26,5 +20,11 @@
       <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" [(ngModel)]="details"
         placeholder="Explicación detallada"></textarea>
     </mat-form-field>
+
+    <button mat-flat-button color="accent" id="send-bug" (click)="sendBug()">
+      <div class="inner">
+        <mat-label>{{ 'Enviar error' | translate }}</mat-label>
+      </div>
+    </button>
   </div>
 </ion-content>

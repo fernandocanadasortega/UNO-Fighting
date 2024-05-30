@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { MaterialComponentsModule } from '../../../material-components.module';
 import { UtilsService } from 'services/utils.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-data',
   templateUrl: './user-data.page.html',
   styleUrls: ['./user-data.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, MaterialComponentsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule]
 })
 export class UserDataPage implements OnInit {
 
@@ -31,7 +32,7 @@ export class UserDataPage implements OnInit {
     this.showPassword = this.showPassword ? false : true;
   }
 
-  public save() {
+  public saveData() {
     console.log(`Guardando datos. Nombre de usuario: ${this.username}, Contraseña: ${this.password}, Repetir contraseña: ${this.repeatPassword}.`);
     this.utils.navigateReplacingUrl('/home/profile');
   }

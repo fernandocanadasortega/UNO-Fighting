@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { UtilsService } from 'services/utils.service';
 import { MaterialComponentsModule } from 'src/app/material-components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bug-report',
   templateUrl: './bug-report.page.html',
   styleUrls: ['./bug-report.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, MaterialComponentsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule]
 })
 export class BugReportPage {
 
@@ -21,7 +22,7 @@ export class BugReportPage {
 
   constructor(private utils: UtilsService) { }
 
-  public send() {
+  public sendBug() {
     console.log(`Enviando datos del reporte. ¿Que ha pasado?: ${this.description}, Detalles del error: ${this.details}.`);
     this.utils.navigateReplacingUrl('/home/profile');
   }

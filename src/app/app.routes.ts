@@ -24,38 +24,42 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'tournaments',
+        redirectTo: 'tournaments-list',
         pathMatch: 'full',
       },
       {
-        path: 'tournaments',
-        loadComponent: () => import('./pages/home-tabs/tournaments/tournaments.page').then( m => m.TournamentsPage)
+        path: 'tournaments-list',
+        loadComponent: () => import('./pages/tournaments-list/tournaments-list.page').then( m => m.TournamentsList)
       },
       {
         path: 'new-tournament',
-        loadComponent: () => import('./pages/home-tabs/new-tournament/new-tournament.page').then( m => m.NewTournamentPage)
+        loadComponent: () => import('./pages/new-tournament/new-tournament.page').then( m => m.NewTournamentPage)
+      },
+      {
+        path: 'search-tournament',
+        loadComponent: () => import('./pages/search-tournament/search-tournament.page').then( m => m.SearchTournament)
       },
       {
         path: 'rules',
-        loadComponent: () => import('./pages/home-tabs/rules/rules.page').then( m => m.RulesPage)
+        loadComponent: () => import('./pages/rules/rules.page').then( m => m.RulesPage)
       },
       {
         path: 'profile',
-        loadComponent: () => import('./pages/home-tabs/profile/profile.page').then( m => m.ProfilePage)
+        loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
       },
     ]
   },
   {
     path: 'profile/user-data',
-    loadComponent: () => import('./pages/profile-pages/user-data/user-data.page').then( m => m.UserDataPage)
+    loadComponent: () => import('./pages/profile/user-data/user-data.page').then( m => m.UserDataPage)
   },
   {
     path: 'profile/user-stats',
-    loadComponent: () => import('./pages/profile-pages/user-stats/user-stats.page').then( m => m.UserStatsPage)
+    loadComponent: () => import('./pages/profile/user-stats/user-stats.page').then( m => m.UserStatsPage)
   },
   {
     path: 'profile/bug-report',
-    loadComponent: () => import('./pages/profile-pages/bug-report/bug-report.page').then( m => m.BugReportPage)
+    loadComponent: () => import('./pages/profile/bug-report/bug-report.page').then( m => m.BugReportPage)
   },
 
 ];

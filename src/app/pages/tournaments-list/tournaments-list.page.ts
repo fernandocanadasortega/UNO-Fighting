@@ -5,13 +5,13 @@ import { ActionSheetController, IonicModule } from '@ionic/angular';
 import { MaterialComponentsModule } from 'src/app/material-components.module';
 
 @Component({
-  selector: 'app-tournaments',
-  templateUrl: './tournaments.page.html',
-  styleUrls: ['./tournaments.page.scss'],
+  selector: 'tournaments',
+  templateUrl: './tournaments-list.page.html',
+  styleUrls: ['./tournaments-list.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, MaterialComponentsModule]
 })
-export class TournamentsPage implements OnInit {
+export class TournamentsList implements OnInit {
 
   private currentFilter: string = 'name';
 

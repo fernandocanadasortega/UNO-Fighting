@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear nuevo torneo</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="searchTournament()">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="background">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del torneo</mat-label>
+      <input matInput placeholder="Fallo al crear un torneo">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha del torneo</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Fecha inicio" readonly>
+        <input matEndDate placeholder="Fecha fin" readonly>
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción del torneo</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4"
+        placeholder="Torneo épico del verano"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="accent" id="qr-search" (click)="createTournament()">
+      <div class="inner">
+        <mat-label>{{ 'Crear torneo' | translate }}</mat-label>
+      </div>
+    </button>
+  </div>
+</ion-content>

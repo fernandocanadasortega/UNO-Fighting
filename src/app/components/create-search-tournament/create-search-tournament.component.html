@@ -1,0 +1,69 @@
+<div id="background">
+  <ng-container *ngIf="searchTournament; else createTournamentTemplate">
+    <div id="form">
+      <button mat-flat-button color="accent" id="qr-search">
+        <div class="inner">
+          <mat-icon>qr_code_scanner</mat-icon>
+          <mat-label>{{ 'Escanear código QR' | translate }}</mat-label>
+        </div>
+      </button>
+
+      <div id="other-search-options">
+        <span></span>
+        <mat-label>{{ 'Introducir código manualmente' | translate }}</mat-label>
+        <span></span>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'Código del torneo' | translate }}</mat-label>
+        <input matInput placeholder="000000000">
+      </mat-form-field>
+
+      <button mat-stroked-button id="manual-search">
+        <mat-label>{{ 'Ingresar' | translate }}</mat-label>
+      </button>
+    </div>
+  </ng-container>
+
+  <div id="footer">
+    <div>
+      <mat-label>
+        {{ (searchTournament ? '¿No existe el torneo?' : '¿Torneo ya existente?') | translate }}
+      </mat-label>
+      <a (click)="toogleSearchTournament()">
+        {{ (searchTournament ? 'Crear un torneo' : 'Unirse a un torneo') | translate }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<ng-template #createTournamentTemplate>
+  <div id="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del torneo</mat-label>
+      <input matInput placeholder="Fallo al crear un torneo">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha del torneo</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Fecha inicio" readonly>
+        <input matEndDate placeholder="Fecha fin" readonly>
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción del torneo</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4"
+        placeholder="Torneo épico del verano"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="accent" id="create-tournament">
+      <div class="inner">
+        <mat-label>{{ 'Crear torneo' | translate }}</mat-label>
+      </div>
+    </button>
+  </div>
+</ng-template>

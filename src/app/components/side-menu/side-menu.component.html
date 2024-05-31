@@ -1,0 +1,30 @@
+<ion-menu contentId="main-menu" side="end">
+  <div id="background">
+    <div matRipple id="personal-information" (click)="navigateToProfile()">
+        <img id="profile-image" src="assets/images/profile.jpg" alt="profile">
+        <div id="profile-name">
+          <mat-label>Napo</mat-label>
+          <mat-label>Área personal</mat-label>
+        </div>
+        <mat-icon color="accent">chevron_right</mat-icon>
+    </div>
+
+    <div id="menu-actions">
+      <div matRipple class="item" (click)="navigateToRules()">
+        <mat-icon color="accent">menu_book</mat-icon>
+        <mat-label>Reglas</mat-label>
+        <mat-icon color="accent">chevron_right</mat-icon>
+      </div>
+
+      <div matRipple class="item" (click)="showBugReportModal()">
+        <mat-icon color="accent">bug_report</mat-icon>
+        <mat-label>Reportar un error</mat-label>
+        <mat-icon color="accent">chevron_right</mat-icon>
+      </div>
+    </div>
+
+    <button mat-stroked-button color="accent" id="log-out" (click)="logout()">
+      <mat-label>{{ 'Cerrar sesión' | translate }}</mat-label>
+    </button>
+  </div>
+</ion-menu>

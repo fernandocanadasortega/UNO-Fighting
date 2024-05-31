@@ -1,0 +1,18 @@
+<ion-content>
+  <div id="background">
+    <div id="header">
+      <img
+        [src]="utils.systemTheme == utils.themes.DARK ? 'assets/images/Icon-white.png' : 'assets/images/Icon-black.png'" />
+      <span class="separator"></span>
+      <ion-menu-button id="main-menu">
+        <button mat-icon-button color="accent">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </ion-menu-button>
+    </div>
+
+    <create-search-tournament></create-search-tournament>
+  </div>
+</ion-content>
+
+<side-menu></side-menu>

@@ -1,0 +1,89 @@
+#background {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+#background>#form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  flex: 1 1 80%;
+}
+
+#background>#form button {
+  padding: 22px 16px;
+  border-radius: 10px;
+
+  .inner {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: 12px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+#background>#footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#background>#footer>div {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+
+  mat-label {
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+
+/**
+ * BUSCAR TORNEO
+ */
+#background>#form button#qr-search {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+#background>#form #other-search-options {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+
+  span {
+    flex: 1 1 auto;
+    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.8);
+  }
+
+  mat-label {
+    font-size: 15px;
+    margin: 0px 12px;
+    color: var(--ion-color-medium);
+  }
+}
+
+#background>#form #manual-search mat-label {
+  color: rgba(var(--ion-color-dark-rgb), 0.87);
+}
+
+
+
+/**
+ * CREAR TORNEO
+ */
+#background>#form button#create-tournament {
+  margin-top: 10px;
+  font-size: 16px;
+}

@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+      <ion-button (click)="closeModal()">
+        <mat-icon>arrow_back</mat-icon>
+      </ion-button>
     </ion-buttons>
 
     <ion-title>Reportar un error</ion-title>

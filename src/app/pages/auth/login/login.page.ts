@@ -33,6 +33,6 @@ export class LoginPage implements OnInit {
   }
 
   public authUser() {
-    this.utils.navigateReplacingUrl('/home');
+    this.utils.navigateReplacingUrl('/tournament');
   }
 }

@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TournamentsList } from './tournaments-list.page';
+import { Tournament } from './tournament.page';
 
 describe('TournamentsPage', () => {
-  let component: TournamentsList;
-  let fixture: ComponentFixture<TournamentsList>;
+  let component: Tournament;
+  let fixture: ComponentFixture<Tournament>;
 
   beforeEach(waitForAsync(() => {
-    fixture = TestBed.createComponent(TournamentsList);
+    fixture = TestBed.createComponent(Tournament);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

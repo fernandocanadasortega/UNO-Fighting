@@ -1,105 +1,125 @@
+@import '../../../theme/utils.scss';
+
 #background {
   width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column;
+  padding: 25px 15px;
 }
 
-#profile-header {
+#profile-data-header {
+  width: 100%;
   display: flex;
-  margin-top: 20px;
+}
 
-  .stat {
+.profile-image {
+  position: relative;
+  margin-right: 22px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+
+  #edit-icon {
+    width: 35px;
+    height: 35px;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
     align-items: center;
-    flex: 1 1 auto;
-
-    mat-label {
-      color: var(--ion-color-medium);
-      font-size: 14px;
-    }
-
-    mat-label:first-child {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 7px;
-      color: var(--ion-color-dark);
-    }
+    justify-content: center;
+    background-color: var(--ion-color-light);
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    border-radius: 100%;
   }
 
-  .image {
-    position: relative;
-
-    img {
-      width: 100px;
-      height: 100px;
-      border-radius: 100%;
-    }
-
-    #edit-icon {
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--ion-color-light);
-      position: absolute;
-      right: 0px;
-      bottom: 0px;
-      border-radius: 100%;
-    }
-
-    mat-icon {
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-      color: var(--ion-color-dark);
-    }
-  }
-}
-
-#profile-name {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  margin-top: 20px;
-
-  mat-label {
-    color: var(--ion-color-medium);
-    font-size: 14px;
-  }
-
-  mat-label:first-child {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 7px;
+  mat-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
     color: var(--ion-color-dark);
   }
 }
 
-.setting-group {
-  margin: 30px 15px;
-  margin-bottom: 0px;
+#profile-data {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  flex: 1;
+  padding: 5px;
+  padding-top: 12px;
+}
 
-  .header {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
+// Nombre de usuario
+#profile-data>mat-label {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+  margin-left: 4px;
+}
 
-  .item {
+#email-show-more {
+  display: flex;
+  margin-top: 17px;
+  margin-left: 4px;
+  margin-bottom: 5px;
+
+  #email {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px 5px;
-    border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.3);
+    flex-grow: 1;
+    overflow: hidden;
+    color: var(--ion-color-medium);
 
     mat-label {
-      flex: 1 1 auto;
-      margin: 0px 15px;
-      font-size: 16px;
+      @extend .text-overflow;
     }
+  }
+
+  #show-more {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: var(--ion-color-success); // todo - cambiar por mat-accent
+
+    mat-icon {
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+    }
+  }
+
+  mat-label {
+    font-size: 12px;
+  }
+}
+
+// Pone los bordes redondeados a la barra de experiencia
+mat-progress-bar {
+  border-radius: 10px;
+}
+
+// Pone los bordes redondeados a la barra de experiencia
+:host ::ng-deep div span.mdc-linear-progress__bar-inner {
+  border-radius: 10px;
+}
+
+// Sobreescribir la altura por defecto de la barra de experiencia
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-height: 10px;
+  --mdc-linear-progress-track-height: 10px;
+}
+
+#level-progress {
+  display: flex;
+  margin: 5px 4px;
+  margin-bottom: 0px;
+
+  mat-label {
+    font-size: 10px;
+    color: var(--ion-color-medium);
   }
 }

@@ -13,3 +13,11 @@ body {
 .action-sheet .action-sheet-group .filter-active {
   color: var(--ion-color-primary);
 }
+
+.text-overflow {
+  text-overflow: ellipsis;
+  /* Required for text-overflow to do anything */
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+}

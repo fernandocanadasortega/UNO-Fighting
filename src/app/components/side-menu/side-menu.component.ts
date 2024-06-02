@@ -22,6 +22,10 @@ export class SideMenuComponent  implements OnInit {
 
   ngOnInit() {}
 
+  public navigateToTournament() {
+    this.utils.navigateReplacingUrl('/tournament');
+  }
+
   public navigateToProfile() {
     this.utils.navigateReplacingUrl('/profile');
   }

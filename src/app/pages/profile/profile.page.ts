@@ -5,14 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialComponentsModule } from '../../material-components.module';
 import { UtilsService } from '../../services/utils.service';
-import { MatDialog } from '@angular/material/dialog';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule, HeaderComponent]
 })
 export class ProfilePage implements OnInit {
 
@@ -42,7 +42,6 @@ export class ProfilePage implements OnInit {
   ];
 
   constructor(
-    public dialog: MatDialog,
     private utils: UtilsService
   ) { }
 
@@ -56,13 +55,5 @@ export class ProfilePage implements OnInit {
 
   public navigateUserStats() {
     this.utils.navigateReplacingUrl('/profile/user-stats');
-  }
-
-  public sendBugReport() {
-    this.utils.navigateReplacingUrl('/profile/bug-report');
-  }
-
-  public logout() {
-    this.utils.navigateReplacingUrl('/login');
   }
 }

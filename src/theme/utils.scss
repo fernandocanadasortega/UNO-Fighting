@@ -21,3 +21,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
 }
+
+mat-card {
+  background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+}

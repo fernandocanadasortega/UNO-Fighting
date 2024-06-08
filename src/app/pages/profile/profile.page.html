@@ -13,14 +13,9 @@
     <div matRipple id="profile-data">
       <mat-label>Napo</mat-label>
 
-      <div id="email-show-more">
+      <div id="email-container">
         <div id="email">
           <mat-label>thenapo212@gmail.com</mat-label>
-        </div>
-        <span class="separator"></span>
-        <div id="show-more">
-          <mat-label color="accent">Detalles</mat-label>
-          <mat-icon color="accent">chevron_right</mat-icon>
         </div>
       </div>
 
@@ -32,6 +27,40 @@
       </div>
     </div>
   </div>
+
+
+  <div id="highlighted-stats">
+    <div class="stat" matTooltip="Partidas ganadas">
+      <mat-icon>emoji_events</mat-icon>
+      <div class="stat-header">
+        <mat-label>Partidas ganadas</mat-label>
+      </div>
+      <mat-label>25</mat-label>
+    </div>
+
+    <div class="stat hightlighted" matTooltip="Partidas jugadas">
+      <mat-icon>sports_esports</mat-icon>
+      <div class="stat-header">
+        <mat-label>Partidas jugadas</mat-label>
+      </div>
+      <mat-label>60</mat-label>
+    </div>
+
+    <div class="stat" matTooltip="Porcentaje victorias">
+      <mat-icon>percent</mat-icon>
+      <div class="stat-header">
+        <mat-label>Porcentaje victorias</mat-label>
+      </div>
+      <mat-label>25</mat-label>
+    </div>
+  </div>
+
+  <mat-card>
+    <mat-card-content>
+      <p>This card indeterminates progress bar.</p>
+      <p>{{'AAAAAAAAAAAAAAA BBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCC'}}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <ion-action-sheet trigger="profile-image-options" header="Modificar imagen de perfil" [buttons]="profileImageButtons">

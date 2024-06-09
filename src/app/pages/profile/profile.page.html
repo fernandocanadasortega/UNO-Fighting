@@ -1,67 +1,132 @@
-<div id="background">
-  <header></header>
+<ion-content>
+  <div id="background">
+    <header></header>
 
-  <div id="profile-data-header">
-    <div id="profile-image-options" class="profile-image">
-      <img src="assets/images/profile.jpg" alt="profile">
+    <div id="profile-data-header">
+      <div id="profile-image-options" class="profile-image">
+        <img src="assets/images/profile.jpg" alt="profile">
 
-      <div id="edit-icon">
-        <mat-icon>edit</mat-icon>
-      </div>
-    </div>
-
-    <div matRipple id="profile-data">
-      <mat-label>Napo</mat-label>
-
-      <div id="email-container">
-        <div id="email">
-          <mat-label>thenapo212@gmail.com</mat-label>
+        <div id="edit-icon">
+          <mat-icon>edit</mat-icon>
         </div>
       </div>
 
-      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-      <div id="level-progress">
-        <mat-label>Nivel 10</mat-label>
-        <span class="separator"></span>
-        <mat-label>Nivel 11</mat-label>
+      <div matRipple id="profile-data">
+        <mat-label>Napo</mat-label>
+
+        <div id="email-container">
+          <div id="email">
+            <mat-label>thenapo212@gmail.com</mat-label>
+          </div>
+        </div>
+
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+        <div id="level-progress">
+          <mat-label>Nivel 10</mat-label>
+          <span class="separator"></span>
+          <mat-label>Nivel 11</mat-label>
+        </div>
       </div>
     </div>
+
+
+    <div id="highlighted-stats">
+      <div class="stat" matTooltip="Partidas ganadas">
+        <mat-icon>emoji_events</mat-icon>
+        <div class="stat-header">
+          <mat-label>Partidas ganadas</mat-label>
+        </div>
+        <mat-label>25</mat-label>
+      </div>
+
+      <div class="stat hightlighted" matTooltip="Partidas jugadas">
+        <mat-icon>sports_esports</mat-icon>
+        <div class="stat-header">
+          <mat-label>Partidas jugadas</mat-label>
+        </div>
+        <mat-label>60</mat-label>
+      </div>
+
+      <div class="stat" matTooltip="Porcentaje victorias">
+        <mat-icon>percent</mat-icon>
+        <div class="stat-header">
+          <mat-label>Porcentaje victorias</mat-label>
+        </div>
+        <mat-label>25</mat-label>
+      </div>
+    </div>
+
+
+    <mat-card>
+      <mat-card-content>
+        <mat-label class="card-header">Ultimas sesiones de juego</mat-label>
+        <div class="table-header">
+          <mat-label>Ubicación</mat-label>
+          <span class="separator"></span>
+          <mat-label>Victorias</mat-label>
+        </div>
+
+        <span class="table-separator"></span>
+
+        <div class="table-body">
+          <div class="table-entry" *ngFor="let entry of [0, 0, 0]">
+            <img src="assets/images/profile.jpg" alt="profile">
+            <div class="left-stats">
+              <mat-label>Playa</mat-label>
+              <mat-label>55 partidas jugadas</mat-label>
+            </div>
+            <span class="separator"></span>
+            <div class="right-stats">
+              <div>
+                <mat-icon>emoji_events</mat-icon>
+                <mat-label>25</mat-label>
+              </div>
+              <div>
+                <mat-icon>person</mat-icon>
+                <mat-label>3</mat-label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card>
+      <mat-card-content>
+        <mat-label class="card-header">Mayor porcentaje de victoria</mat-label>
+        <div class="table-header">
+          <mat-label>Ubicación</mat-label>
+          <span class="separator"></span>
+          <mat-label>% Victorias</mat-label>
+        </div>
+
+        <span class="table-separator"></span>
+
+        <div class="table-body">
+          <div class="table-entry" *ngFor="let entry of [0, 0, 0]">
+            <img src="assets/images/profile.jpg" alt="profile">
+            <div class="left-stats">
+              <mat-label>Playa</mat-label>
+              <mat-label>55 partidas jugadas</mat-label>
+            </div>
+            <span class="separator"></span>
+            <div class="right-stats">
+              <div>
+                <mat-icon>percent</mat-icon>
+                <mat-label>52,7</mat-label>
+              </div>
+              <div>
+                <mat-icon>emoji_events</mat-icon>
+                <mat-label>25</mat-label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
-
-
-  <div id="highlighted-stats">
-    <div class="stat" matTooltip="Partidas ganadas">
-      <mat-icon>emoji_events</mat-icon>
-      <div class="stat-header">
-        <mat-label>Partidas ganadas</mat-label>
-      </div>
-      <mat-label>25</mat-label>
-    </div>
-
-    <div class="stat hightlighted" matTooltip="Partidas jugadas">
-      <mat-icon>sports_esports</mat-icon>
-      <div class="stat-header">
-        <mat-label>Partidas jugadas</mat-label>
-      </div>
-      <mat-label>60</mat-label>
-    </div>
-
-    <div class="stat" matTooltip="Porcentaje victorias">
-      <mat-icon>percent</mat-icon>
-      <div class="stat-header">
-        <mat-label>Porcentaje victorias</mat-label>
-      </div>
-      <mat-label>25</mat-label>
-    </div>
-  </div>
-
-  <mat-card>
-    <mat-card-content>
-      <p>This card indeterminates progress bar.</p>
-      <p>{{'AAAAAAAAAAAAAAA BBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCC'}}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
+</ion-content>
 
 <ion-action-sheet trigger="profile-image-options" header="Modificar imagen de perfil" [buttons]="profileImageButtons">
 </ion-action-sheet>

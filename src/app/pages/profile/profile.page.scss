@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: column;
   padding: 15px;
+  overflow-y: auto;
 }
 
 
@@ -123,6 +124,7 @@ mat-progress-bar {
 #highlighted-stats {
   display: flex;
   margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 #highlighted-stats>.stat {
@@ -174,12 +176,111 @@ mat-progress-bar {
 
 
 /**
- * ULTIMAS PARTIDAS JUGADAS
+ * ULTIMAS PARTIDAS JUGADAS / LUGARES DONDE MÁS HAS GANADO
  */
-mat-card {
-  margin-top: 40px;
+#background mat-card {
+  margin-top: 30px;
 }
 
 mat-card-content {
-  padding: 16px
+  padding: 16px;
+
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--ion-color-dark);
+  }
+
+  .table-header {
+    display: flex;
+    margin-top: 15px;
+  }
+
+  .table-header mat-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--ion-color-medium);
+  }
+
+  .table-header mat-label:first-child {
+    margin-left: 5px;
+  }
+
+  .table-separator {
+    display: flex;
+    margin: 8px -16px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  }
+
+  .table-body {
+    display: flex;
+    flex-flow: column;
+
+    .table-entry {
+      display: flex;
+      margin-top: 30px;
+      align-items: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        margin-right: 20px;
+      }
+
+      .left-stats {
+        display: flex;
+        flex-flow: column;
+
+        // Label inferior (Color gris)
+        mat-label {
+          font-size: 12px;
+          color: var(--ion-color-medium);
+        }
+      }
+
+      // Label superior (Color blanco)
+      .left-stats mat-label:first-child {
+        font-size: 18px;
+        color: var(--ion-color-dark);
+        margin-bottom: 5px;
+      }
+
+      .right-stats {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        margin-right: 2px;
+      }
+
+      // Icono inferior (Color gris)
+      .right-stats>div {
+        display: flex;
+        align-items: center;
+        color: var(--ion-color-medium);
+
+        mat-icon {
+          width: 20px;
+          height: 20px;
+          font-size: 20px;
+          margin-right: 6px;
+        }
+
+        mat-label {
+          margin-top: 2px;
+        }
+      }
+
+      // Icono superior (Color blanco)
+      .right-stats>div:first-child {
+        margin-bottom: 5px;
+        color: var(--ion-color-dark);
+      }
+    }
+
+    .table-entry:first-child {
+      margin-top: 20px;
+    }
+  }
 }

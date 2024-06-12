@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -13,7 +13,7 @@ import { MaterialComponentsModule } from '../../../material-components.module';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule, HeaderComponent]
 })
-export class AdvancedProfileSettingsPage implements OnInit {
+export class AdvancedProfileSettingsPage {
 
   public currentPassword: string = '';
   public newPassword: string = '';
@@ -23,9 +23,6 @@ export class AdvancedProfileSettingsPage implements OnInit {
   public showPassword: boolean = false;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   public toggleShowPassword() {
     this.showPassword = this.showPassword ? false : true;

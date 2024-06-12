@@ -37,16 +37,5 @@ export const routes: Routes = [
   {
     path: 'rules',
     loadComponent: () => import('./pages/rules/rules.page').then( m => m.RulesPage)
-  },
-
-
-
-  {
-    path: 'profile/user-data',
-    loadComponent: () => import('./pages/profile/modify-profile/modify-profile.page').then( m => m.ModifyProfilePage)
-  },
-  {
-    path: 'profile/user-stats',
-    loadComponent: () => import('./pages/profile/advanced-profile-settings/advanced-profile-settings.page').then( m => m.AdvancedProfileSettingsPage)
   }
 ];

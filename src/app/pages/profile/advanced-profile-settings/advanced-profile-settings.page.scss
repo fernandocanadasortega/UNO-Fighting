@@ -7,8 +7,27 @@
   overflow-y: auto;
 }
 
+.mat-accordion-header {
+  margin-top: 45px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+}
+
+.mat-accordion-header:first-of-type {
+  margin-top: 6px;
+}
+
+.mat-accordion-header.warning {
+  color: var(--ion-color-warning);
+}
+
+.mat-accordion-header.danger {
+  color: var(--ion-color-danger);
+}
+
 mat-accordion {
-  margin-top: 30px;
+  margin-top: 12px;
 
   mat-panel-title {
     font-weight: bold;
@@ -69,10 +88,6 @@ mat-accordion {
       width: 33.33%;
     }
   }
-}
-
-mat-accordion:first-of-type {
-  margin-top: 6px;
 }
 
 #warning-options {

@@ -27,6 +27,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
   },
   {
+    path: 'modify-profile',
+    loadComponent: () => import('./pages/profile/modify-profile/modify-profile.page').then( m => m.ModifyProfilePage)
+  },
+  {
+    path: 'advanced-profile-settings',
+    loadComponent: () => import('./pages/profile/advanced-profile-settings/advanced-profile-settings.page').then( m => m.AdvancedProfileSettingsPage)
+  },
+  {
     path: 'rules',
     loadComponent: () => import('./pages/rules/rules.page').then( m => m.RulesPage)
   },
@@ -35,10 +43,10 @@ export const routes: Routes = [
 
   {
     path: 'profile/user-data',
-    loadComponent: () => import('./pages/profile/user-data/user-data.page').then( m => m.UserDataPage)
+    loadComponent: () => import('./pages/profile/modify-profile/modify-profile.page').then( m => m.ModifyProfilePage)
   },
   {
     path: 'profile/user-stats',
-    loadComponent: () => import('./pages/profile/user-stats/user-stats.page').then( m => m.UserStatsPage)
+    loadComponent: () => import('./pages/profile/advanced-profile-settings/advanced-profile-settings.page').then( m => m.AdvancedProfileSettingsPage)
   }
 ];

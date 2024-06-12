@@ -1,0 +1,87 @@
+<ion-content>
+  <div id="background">
+    <header></header>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Cambiar tema
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-panel-body">
+          <mat-label class="header">Permite elegir el tema de la aplicación.</mat-label>
+          <mat-label class="description">Si elige el tema Por defecto se establecerá el tema seleccionado en el dispositivo.</mat-label>
+          <mat-button-toggle-group [(ngModel)]="theme" (change)="changeTheme($event)">
+            <mat-button-toggle value="default">Por defecto</mat-button-toggle>
+            <mat-button-toggle value="dark">Oscuro</mat-button-toggle>
+            <mat-button-toggle value="light">Claro</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Inicio de sesión con biometría
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-panel-body">
+          <mat-label class="header">Permite iniciar sesión mediante biometría, en vez de introducir la contraseña.</mat-label>
+          <button mat-stroked-button class="confirm-button">Habilitar biometría</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion id="warning-options">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Cambiar contraseña
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-panel-body">
+          <mat-label class="header">Para cambiar la contraseña escriba su contraseña actual y la contraseña nueva.</mat-label>
+          <mat-label class="description">Cuando la contraseña sea cambiada se cerrará automáticamente la sesión.</mat-label>
+          <mat-label class="description">Si no recuerda su contraseña actual cierre sesión y dirijase al apartado Reestablecer contraseña.</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña actual</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="currentPassword" placeholder="••••••••••••••">
+            <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Nueva contraseña</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="newPassword" placeholder="••••••••••••••">
+            <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Repetir nueva contraseña</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="repeatNewPassword" placeholder="••••••••••••••">
+            <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+          </mat-form-field>
+          <button mat-stroked-button class="confirm-button">Confirmar cambio</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion id="danger-options">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Borrar cuenta
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-panel-body">
+          <mat-label class="header">Una vez confirme el borrado de su cuenta no habrá marcha atrás. Por favor escriba su contraseña actual.</mat-label>
+          <mat-label class="description">Cuando su cuenta sea borrada, se eliminará su perfil y todas sus estadísticas, pero no se eliminarán los registros de las partidas en los torneos que hubiese jugado.</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="deleteAccountPassword" placeholder="••••••••••••••">
+            <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
+          </mat-form-field>
+          <button mat-stroked-button class="confirm-button">Confirmar borrado</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</ion-content>

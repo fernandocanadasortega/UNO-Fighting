@@ -1,34 +1,59 @@
 <ion-menu contentId="main-menu" side="end">
   <div id="background">
+    <!-- INFORMACIÓN PERSONAL -->
     <div matRipple id="personal-information" (click)="navigateToProfile()">
-        <img id="profile-image" src="assets/images/profile.jpg" alt="profile">
-        <div id="profile-name">
-          <mat-label>Napo</mat-label>
-          <mat-label>Área personal</mat-label>
-        </div>
-        <mat-icon color="accent">chevron_right</mat-icon>
+      <img id="profile-image" src="assets/images/profile.jpg" alt="profile">
+      <div id="profile-name">
+        <mat-label>Napo</mat-label>
+        <mat-label>Área personal</mat-label>
+      </div>
+      <mat-icon color="accent">chevron_right</mat-icon>
     </div>
 
-    <div id="menu-actions">
+    <!-- CONFIGURACIÓN DEL PERFIL -->
+    <div id="profile-actions">
+      <div class="item">
+        <button mat-icon-button (click)="navigateToModifyProfile()">
+          <mat-icon>manage_accounts</mat-icon>
+        </button>
+        <mat-label>Modificar perfil</mat-label>
+      </div>
+
+      <div class="item">
+        <button mat-icon-button (click)="navigateToAdvancedProfileSettings()">
+          <mat-icon>admin_panel_settings</mat-icon>
+        </button>
+        <mat-label>Ajustes avanzados</mat-label>
+      </div>
+    </div>
+
+    <!-- ACCIONES DEL MENÚ -->
+    <div class="menu-actions">
       <div matRipple class="item" (click)="navigateToTournament()">
-        <mat-icon color="accent">sports_esports</mat-icon>
+        <mat-icon color="accent">emoji_events</mat-icon>
         <mat-label>Torneo</mat-label>
         <mat-icon color="accent">chevron_right</mat-icon>
       </div>
 
       <div matRipple class="item" (click)="navigateToRules()">
-        <mat-icon color="accent">menu_book</mat-icon>
-        <mat-label>Reglas</mat-label>
-        <mat-icon color="accent">chevron_right</mat-icon>
-      </div>
-
-      <div matRipple class="item" (click)="showBugReportModal()">
-        <mat-icon color="accent">bug_report</mat-icon>
-        <mat-label>Reportar un error</mat-label>
+        <mat-icon color="accent">view_carousel</mat-icon>
+        <mat-label>Cartas y reglas</mat-label>
         <mat-icon color="accent">chevron_right</mat-icon>
       </div>
     </div>
 
+    <!-- ACCIONES DEL MENÚ (Enviar un error / sugerencia) -->
+    <div class="menu-actions menu-separator">
+      <div matRipple class="item" (click)="showBugReportModal()">
+        <mat-icon color="accent">bug_report</mat-icon>
+        <mat-label>Enviar un reporte</mat-label>
+        <mat-icon color="accent">chevron_right</mat-icon>
+      </div>
+    </div>
+
+    <span class="separator"></span>
+
+    <!-- CERRAR SESIÓN -->
     <button mat-stroked-button color="accent" id="log-out" (click)="logout()">
       <mat-label>{{ 'Cerrar sesión' | translate }}</mat-label>
     </button>

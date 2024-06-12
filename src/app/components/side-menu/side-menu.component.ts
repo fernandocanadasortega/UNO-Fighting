@@ -30,6 +30,14 @@ export class SideMenuComponent  implements OnInit {
     this.utils.navigateReplacingUrl('/profile');
   }
 
+  public navigateToModifyProfile() {
+    this.utils.navigateReplacingUrl('/modify-profile');
+  }
+
+  public navigateToAdvancedProfileSettings() {
+    this.utils.navigateReplacingUrl('/advanced-profile-settings');
+  }
+
   public navigateToRules() {
     this.utils.navigateReplacingUrl('/rules');
   }

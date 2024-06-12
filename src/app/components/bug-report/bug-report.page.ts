@@ -6,7 +6,7 @@ import { MaterialComponentsModule } from 'src/app/material-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-bug-report',
+  selector: 'bug-report',
   templateUrl: './bug-report.page.html',
   styleUrls: ['./bug-report.page.scss'],
   standalone: true,

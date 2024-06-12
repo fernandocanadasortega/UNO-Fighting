@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { MaterialComponentsModule } from '../../../material-components.module';
 import { UtilsService } from 'services/utils.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { MaterialComponentsModule } from '../../../material-components.module';
+import { HeaderComponent } from '../../../components/header/header.component';
 
 @Component({
-  selector: 'app-user-data',
-  templateUrl: './user-data.page.html',
-  styleUrls: ['./user-data.page.scss'],
+  selector: 'modify-profile',
+  templateUrl: './modify-profile.page.html',
+  styleUrls: ['./modify-profile.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule, HeaderComponent]
 })
-export class UserDataPage implements OnInit {
+export class ModifyProfilePage implements OnInit {
 
   public email: string = '';
   public username: string = '';

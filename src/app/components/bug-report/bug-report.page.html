@@ -6,12 +6,20 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>Reportar un error</ion-title>
+    <ion-title>Enviar un reporte</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="background">
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de reporte</mat-label>
+      <mat-select>
+        <mat-option value="bug">Error</mat-option>
+        <mat-option value="suggestion">Sugerencia</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>¿Que ha pasado?</mat-label>
       <input matInput [(ngModel)]="description" placeholder="Fallo al crear un torneo">

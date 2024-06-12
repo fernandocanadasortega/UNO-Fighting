@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { MaterialComponentsModule } from 'src/app/material-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreateSearchTournamentComponent } from '../../components/create-search-tournament/create-search-tournament.component';
-import { SideMenuComponent } from 'src/app/components/side-menu/side-menu.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({

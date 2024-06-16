@@ -11,7 +11,7 @@
 
 
 /**
- * PROFILE HEADER INFORMATION
+ * CABECERA CON INFORMACIÓN DEL PERFIL
  */
 #profile-data-header {
   width: 100%;
@@ -120,7 +120,7 @@ mat-progress-bar {
 
 
 /**
- * HIGHLIGHTED STATS
+ * ESTADÍSTICAS DESTACADAS
  */
 #highlighted-stats {
   display: flex;
@@ -128,11 +128,11 @@ mat-progress-bar {
   margin-bottom: 10px;
 }
 
-#highlighted-stats>.stat {
+#highlighted-stats .stat {
+  width: 30%;
   display: flex;
   flex-flow: column;
   align-items: center;
-  flex-grow: 1;
 
   mat-icon {
     color: var(--ion-color-medium);
@@ -143,7 +143,7 @@ mat-progress-bar {
     max-width: 100px;
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    flex: 0 1 auto;
     overflow: hidden;
     margin-top: 3px;
     margin-bottom: 8px;
@@ -159,15 +159,39 @@ mat-progress-bar {
   mat-label {
     font-size: 22px;
     font-weight: bold;
+    text-align: center;
     color: var(--ion-color-dark);
   }
 }
 
-#highlighted-stats>.stat.hightlighted {
+#highlighted-stats .stat.hightlighted {
+  width: 40%;
   margin: 0px 11px;
   padding: 0px 12px;
   border-left: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
   border-right: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+}
+
+#highlighted-stats .stat.hightlighted.favorite-card {
+  // Descripción de la estadistica
+  .stat-header {
+    margin-bottom: 0px !important;
+
+    mat-label {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+      @extend .text-overflow;
+    }
+  }
+
+  // Contador de la estadistica
+  mat-label {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 3px;
+  }
 }
 
 #highlighted-stats>span.stat-separator {
@@ -282,6 +306,79 @@ mat-card-content {
 
     .table-entry:first-child {
       margin-top: 20px;
+    }
+  }
+}
+
+
+
+/*
+ * TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL
+ */
+#background mat-card mat-card-content.table-container {
+  padding: 12px;
+  padding-top: 10px;
+}
+
+// Modifica el aspecto visual del mat-tab
+:host ::ng-deep .mat-mdc-tab-label-container {
+  border-radius: 10px;
+}
+
+:host ::ng-deep .mat-mdc-tab-list {
+  padding: 3px;
+  border-radius: 10px;
+  background-color: var(--ion-background-color, #fff);
+}
+
+:host ::ng-deep .mdc-tab.mdc-tab {
+  height: 33px;
+  border-radius: 10px;
+  background-color: var(--ion-background-color, #fff);
+}
+
+:host ::ng-deep .mdc-tab.mdc-tab--active {
+  background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+}
+
+:host ::ng-deep .mdc-tab__text-label {
+  color: var(--ion-color-medium) !important;
+}
+
+:host ::ng-deep .mdc-tab-indicator__content {
+  border: 0px;
+}
+
+// Elimina el color del ripple al seleccionar una pestaña
+:host ::ng-deep .mdc-tab__ripple {
+  --mat-tab-header-active-ripple-color: transparent;
+}
+
+// Modela la tabla con las estadísticas e información personal
+.table-container .table {
+  display: flex;
+  flex-flow: column;
+  margin: 12px 8px;
+
+  .stat {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+
+    .stat-header {
+      min-width: 42%;
+      flex: 0 1 40%;
+      margin-right: 20px;
+      @extend .text-overflow;
+      font-size: 12px;
+      color: var(--ion-color-medium);
+    }
+
+    .stat-value {
+      flex-grow: 1;
+      @extend .text-overflow;
+      font-size: 15px;
+      color: var(--ion-color-dark);
     }
   }
 }

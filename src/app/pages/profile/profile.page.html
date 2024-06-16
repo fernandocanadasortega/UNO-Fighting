@@ -2,6 +2,7 @@
   <div id="background">
     <header></header>
 
+    <!-- CABECERA CON INFORMACIÓN DEL PERFIL -->
     <div id="profile-data-header">
       <div id="profile-image-options" class="profile-image">
         <img src="assets/images/profile.jpg" alt="profile">
@@ -29,7 +30,7 @@
       </div>
     </div>
 
-
+    <!-- ESTADÍSTICAS DESTACADAS -->
     <div id="highlighted-stats">
       <div class="stat" matTooltip="Partidas ganadas">
         <mat-icon>emoji_events</mat-icon>
@@ -39,12 +40,12 @@
         <mat-label>25</mat-label>
       </div>
 
-      <div class="stat hightlighted" matTooltip="Partidas jugadas">
-        <mat-icon>sports_esports</mat-icon>
+      <div class="stat hightlighted favorite-card" matTooltip="Partidas jugadas">
+        <mat-icon>view_carousel</mat-icon>
         <div class="stat-header">
-          <mat-label>Partidas jugadas</mat-label>
+          <mat-label>Carta favorita</mat-label>
         </div>
-        <mat-label>60</mat-label>
+        <mat-label>Cambio sentido</mat-label>
       </div>
 
       <div class="stat" matTooltip="Porcentaje victorias">
@@ -56,7 +57,7 @@
       </div>
     </div>
 
-
+    <!-- ULTIMAS PARTIDAS JUGADAS -->
     <mat-card>
       <mat-card-content>
         <mat-label class="card-header">Ultimas sesiones de juego</mat-label>
@@ -91,7 +92,7 @@
       </mat-card-content>
     </mat-card>
 
-
+    <!-- LUGARES DONDE MÁS HAS GANADO -->
     <mat-card>
       <mat-card-content>
         <mat-label class="card-header">Mayor porcentaje de victoria</mat-label>
@@ -125,8 +126,112 @@
         </div>
       </mat-card-content>
     </mat-card>
+
+    <!-- TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL -->
+    <mat-card>
+      <mat-card-content class="table-container">
+        <mat-tab-group [disableRipple]="true">
+          <mat-tab label="General">
+            <ng-container [ngTemplateOutlet]="overviewTab"></ng-container>
+          </mat-tab>
+          <mat-tab label="Estadísticas">
+            <ng-container [ngTemplateOutlet]="performanceTab"></ng-container>
+          </mat-tab>
+          <mat-tab label="Social">
+            <ng-container [ngTemplateOutlet]="socialTab"></ng-container>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
   </div>
 </ion-content>
+
+<ng-template #overviewTab>
+  <div class="table">
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>thenapo212@gmail.com</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>Napo</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>31 / 05 / 2024</mat-label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #performanceTab>
+  <div class="table">
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>thenapo212@gmail.com</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>Napo</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>31 / 05 / 2024</mat-label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #socialTab>
+  <div class="table">
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>thenapo212@gmail.com</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>Napo</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>31 / 05 / 2024</mat-label>
+      </div>
+    </div>
+  </div>
+</ng-template>
 
 <ion-action-sheet trigger="profile-image-options" header="Modificar imagen de perfil" [buttons]="profileImageButtons">
 </ion-action-sheet>

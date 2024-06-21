@@ -12,13 +12,13 @@
         </div>
       </div>
 
-      <div id="profile-data">
-        <mat-label>Napo</mat-label>
+      <div class="profile-data">
+        <div class="username">
+          <mat-label>Napo</mat-label>
+        </div>
 
-        <div id="email-container" matTooltip="Estoy cuatro univerlos paralelos delante tuya">
-          <div id="email">
-            <mat-label>Estoy cuatro univerlos paralelos delante tuya</mat-label>
-          </div>
+        <div class="status" matTooltip="Estoy cuatro univerlos paralelos delante tuya">
+          <mat-label>Estoy cuatro univerlos paralelos delante tuya</mat-label>
         </div>
 
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
@@ -40,7 +40,7 @@
         <mat-label>25</mat-label>
       </div>
 
-      <div class="stat hightlighted favorite-card" matTooltip="Partidas jugadas">
+      <div class="stat hightlighted favorite-card" matTooltip="Carta favorita">
         <mat-icon>view_carousel</mat-icon>
         <div class="stat-header">
           <mat-label>Carta favorita</mat-label>
@@ -130,7 +130,7 @@
     <!-- TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL -->
     <mat-card>
       <mat-card-content class="table-container">
-        <mat-tab-group [disableRipple]="true">
+        <mat-tab-group [disableRipple]="true" [selectedIndex]="1">
           <mat-tab label="General">
             <ng-container [ngTemplateOutlet]="overviewTab"></ng-container>
           </mat-tab>
@@ -172,62 +172,69 @@
         <mat-label>31 / 05 / 2024</mat-label>
       </div>
     </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Carta favorita' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>Thanos</mat-label>
+        <mat-label class="sub-stat-value">Verde</mat-label>
+      </div>
+    </div>
   </div>
 </ng-template>
 
 <ng-template #performanceTab>
-  <div class="table">
+  <div class="table performance-table-tab">
     <div class="stat">
       <div class="stat-header">
-        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+        <mat-label>{{ 'Partidas jugadas' | uppercase }}</mat-label>
       </div>
       <div class="stat-value">
-        <mat-label>thenapo212@gmail.com</mat-label>
+        <mat-label>25</mat-label>
       </div>
     </div>
     <div class="stat">
       <div class="stat-header">
-        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
+        <mat-label>{{ 'Partidas ganadas' | uppercase }}</mat-label>
       </div>
       <div class="stat-value">
-        <mat-label>Napo</mat-label>
+        <mat-label>14</mat-label>
       </div>
     </div>
     <div class="stat">
       <div class="stat-header">
-        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
+        <mat-label>{{ 'Porcentaje de victoria' | uppercase }}</mat-label>
       </div>
       <div class="stat-value">
-        <mat-label>31 / 05 / 2024</mat-label>
+        <mat-label>54%</mat-label>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-header">
+        <mat-label>{{ 'Victorias consecutivas' | uppercase }}</mat-label>
+      </div>
+      <div class="stat-value">
+        <mat-label>4</mat-label>
       </div>
     </div>
   </div>
 </ng-template>
 
+<!-- todo - solo visible en tu perfil, no si miras perfil ajeno -->
 <ng-template #socialTab>
-  <div class="table">
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+  <div class="table social-table-tab">
+    <div matRipple class="friend" *ngFor="let entry of [0, 0, 0]">
+      <div class="friend-name">
+        <mat-label>Gorpax</mat-label>
       </div>
-      <div class="stat-value">
-        <mat-label>thenapo212@gmail.com</mat-label>
+      <div class="friend-stat">
+        <mat-icon>percent</mat-icon>
+        <mat-label>52,7</mat-label>
       </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>Napo</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>31 / 05 / 2024</mat-label>
+      <div class="friend-stat">
+        <mat-icon>emoji_events</mat-icon>
+        <mat-label>25</mat-label>
       </div>
     </div>
   </div>

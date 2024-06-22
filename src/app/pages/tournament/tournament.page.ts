@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { MaterialComponentsModule } from 'src/app/material-components.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { MaterialComponentsModule } from '../../material-components.module';
 import { CreateSearchTournamentComponent } from '../../components/create-search-tournament/create-search-tournament.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'tournaments',

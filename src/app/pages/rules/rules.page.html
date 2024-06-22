@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>rules</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div id="background">
+    <header></header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">rules</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" sizeSm="4" sizeMd="3" sizeLg="3" sizeXl="2" *ngFor="let card of [0,0,0,0,0,0,0,0,0,0]">
+          <div matRipple class="card-container" (click)="showCard()">
+            <div class="image-container">
+              <img src="assets/images/+4.jpg" alt="card">
+              <div class="card-overlay">
+                <mat-label>Chupa cuatro</mat-label>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

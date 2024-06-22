@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, ModalController, ToastController } from '@ionic/angular';
-import { MaterialComponentsModule } from 'src/app/material-components.module';
+import { MaterialComponentsModule } from '../../material-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

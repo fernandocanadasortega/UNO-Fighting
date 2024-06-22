@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'services/utils.service';
-import { MaterialComponentsModule } from 'src/app/material-components.module';
+import { MaterialComponentsModule } from '../../material-components.module';
 import { SideMenuComponent } from '../side-menu/side-menu.component';
 
 @Component({

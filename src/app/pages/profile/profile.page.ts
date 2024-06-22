@@ -8,7 +8,7 @@ import { UtilsService } from '../../services/utils.service';
 import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,

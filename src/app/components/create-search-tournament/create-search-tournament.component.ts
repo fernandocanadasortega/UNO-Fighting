@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'services/utils.service';
-import { MaterialComponentsModule } from 'src/app/material-components.module';
+import { MaterialComponentsModule } from '../../material-components.module';
 
 @Component({
   selector: 'create-search-tournament',

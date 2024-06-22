@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'services/utils.service';
-import { MaterialComponentsModule } from 'src/app/material-components.module';
+import { MaterialComponentsModule } from '../../material-components.module';
 import { BugReport } from '../bug-report/bug-report.page';
 
 @Component({

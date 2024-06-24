@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialComponentsModule } from '../../material-components.module';
 import { CreateSearchTournamentComponent } from '../../components/create-search-tournament/create-search-tournament.component';
 import { HeaderComponent } from '../../components/header/header.component';
+import { UtilsService } from 'services/utils.service';
 
 @Component({
   selector: 'tournaments',
@@ -16,6 +17,9 @@ import { HeaderComponent } from '../../components/header/header.component';
 })
 export class Tournament {
 
-  constructor() { }
+  constructor(private utils: UtilsService) { }
 
+  navigateToSession() {
+    this.utils.navigateReplacingUrl('tournament/game-session');
+  }
 }

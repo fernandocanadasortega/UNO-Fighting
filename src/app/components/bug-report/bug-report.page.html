@@ -1,17 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="closeModal()">
-        <mat-icon>arrow_back</mat-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title>Enviar un reporte</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div id="background">
+    <div id="header">
+      <button mat-icon-button id="return-button" (click)="closeModal()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <mat-label>Enviar un reporte</mat-label>
+    </div>
+
+    <!-- INFORMACIÓN SOBRE LA PRIVACIDAD -->
+    <div id="subheader">
+      <mat-label>El reporte se realiza de manera anónima, no se recolectan los datos del usuario o cuenta.</mat-label>
+    </div>
+
+    <!-- FORMULARIO DEL REPORTE -->
     <mat-form-field appearance="outline">
       <mat-label>Tipo de reporte</mat-label>
       <mat-select>
@@ -31,9 +32,12 @@
         placeholder="Explicación detallada"></textarea>
     </mat-form-field>
 
+    <span class="separator"></span>
+
+    <!-- ENVIAR REPORTE -->
     <button mat-flat-button color="accent" id="send-bug" (click)="sendBug()">
       <div class="inner">
-        <mat-label>{{ 'Enviar error' | translate }}</mat-label>
+        <mat-label>{{ 'Enviar reporte' | translate }}</mat-label>
       </div>
     </button>
   </div>

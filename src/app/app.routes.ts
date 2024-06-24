@@ -20,7 +20,11 @@ export const routes: Routes = [
   },
   {
     path: 'tournament',
-    loadComponent: () => import('./pages/tournament/tournament.page').then( m => m.Tournament)
+    loadComponent: () => import('./pages/tournament/tournament.page').then( m => m.Tournament),
+  },
+  {
+    path: 'tournament/game-session',
+    loadComponent: () => import('./pages/tournament/game-session/game-session.page').then( m => m.GameSessionPage)
   },
   {
     path: 'profile',

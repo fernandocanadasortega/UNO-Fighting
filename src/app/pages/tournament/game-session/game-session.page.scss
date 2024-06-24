@@ -1,0 +1,194 @@
+#ion-refresher-padding {
+  width: 100%;
+  height: 100%;
+  padding: 15px 0px;
+}
+
+#background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  padding: 0px 15px;
+  overflow-y: auto;
+}
+
+
+#header {
+  display: flex;
+  align-items: center;
+}
+
+#header>mat-label {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+  margin-left: 25px;
+}
+
+
+#subheader {
+  display: flex;
+  align-items: center;
+  color: var(--ion-color-medium);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+
+  mat-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin: 0px 8px;
+  }
+
+  mat-label {
+    margin-top: 2px;
+    font-size: 15px;
+  }
+}
+
+
+#leaderboard {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  .item {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    img.medal {
+      min-width: 45px;
+      width: 45px;
+      height: 45px;
+      margin-bottom: 6px;
+    }
+
+    img.user-image {
+      min-width: 70px;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+    }
+
+    .username {
+      font-size: 19px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      color: var(--ion-color-dark);
+    }
+
+    .user-victories {
+      font-size: 12px;
+      margin-top: 3px;
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .item.first-place {
+    margin: 0px 45px;
+
+    img.medal {
+      min-width: 50px;
+      width: 50px;
+      height: 50px;
+    }
+
+    img.user-image {
+      min-width: 85px;
+      width: 85px;
+      height: 85px;
+    }
+
+    .username {
+      font-size: 22px;
+    }
+
+    .user-victories {
+      font-size: 14px;
+    }
+  }
+}
+
+
+
+#session-match-history {
+  display: flex;
+  flex-flow: column;
+  margin-top: 30px;
+
+  ::-webkit-scrollbar { /* Eliminar barra de scroll para Safari and Chrome */
+    display: none;
+  }
+
+  -ms-overflow-style: none;  /* Eliminar barra de scroll para Internet Explorer 10+ */
+  scrollbar-width: none;  /* Eliminar barra de scroll para  Firefox */
+}
+
+#session-match-history>mat-label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--ion-color-dark);
+}
+
+#game-match-carrousel {
+  display: flex;
+  margin: 15px 5px;
+  margin-bottom: 0px;
+  overflow-x: auto;
+}
+
+mat-card.game-match-result {
+  margin-left: 20px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-flow: column;
+  width: 145px;
+  padding: 16px;
+
+  mat-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: var(--ion-color-success);
+  }
+
+  mat-icon.edit {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    color: var(--ion-color-primary);
+  }
+
+  .card-header {
+    font-size: 12px;
+    margin-top: 10px;
+    color: var(--ion-color-medium);
+  }
+
+  .card-value {
+    font-size: 16px;
+    color: var(--ion-color-dark);
+  }
+}
+
+#new-game-match mat-card-content mat-icon {
+  color: var(--ion-color-primary);
+}
+
+
+#end-session {
+  margin-top: 15px;
+  font-size: 16px;
+}

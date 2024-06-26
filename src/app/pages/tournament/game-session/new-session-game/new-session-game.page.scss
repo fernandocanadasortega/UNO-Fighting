@@ -43,11 +43,8 @@
   z-index: 105;
   width: 0px;
   top: 2px;
-  // opacity: 0;
-  // height: 0px;
-  right: 100px;
+  right: 93px;
   background: var(--ion-background-color, #fff);
-  // -webkit-transition: width .2s;
 
   ion-searchbar {
     padding: 0px;
@@ -60,41 +57,19 @@
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  // width: calc(100vw - 93px); // 93px = 48px (Tamaño del boton de búsqueda) + 15px (padding derecho del background) + 15px (padding izquierdo de seperación) + 15px (Separación adicional)
 }
 
 @keyframes activate-overlay {
   0% {
     width: 0px;
-    // height: 0;
     opacity: 0.5;
-    right: 100px;
     visibility: visible;
   }
-
-  /* 35% {
-    opacity: 0.5;
-  } */
 
   100% {
     width: calc(100vw - 93px); // 93px = 48px (Tamaño del boton de búsqueda) + 15px (padding derecho del background) + 15px (padding izquierdo de seperación) + 15px (Separación adicional)
-    // height: initial;
     opacity: 1;
-    right: 93px;
     visibility: visible;
   }
 }
-
-
-/* #search-overlay {
-  width: 128px;
-  height: 128px;
-  background: red;
-  -webkit-transition: width .2s;
-  position:absolute;
-  top:0; right:0;
-  display: flex;
-  align-items: center;
-  z-index: 105;
-} */
 

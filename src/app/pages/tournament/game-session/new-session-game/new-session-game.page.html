@@ -1,39 +1,30 @@
-<ion-content>
-  <div id="background">
-    <button mat-icon-button id="return-button" (click)="closeModal()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
+<div id="ion-refresher-padding">
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refreshGameSession($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-    <div id="card-container">
-      <div id="image-container">
-        <img src="assets/images/+4.jpg" alt="card">
+    <div id="background">
+      <div id="header-background">
+        <div id="header">
+          <button mat-icon-button id="return-button" (click)="closeModal()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <mat-label>Nueva partida</mat-label>
+        </div>
+
+        <span class="separator"></span>
+        <div>
+          <button mat-icon-button class="search-button" (click)="showSearchOverlay()">
+            <mat-icon>{{ searchOverlay ? 'search_off' : 'search' }}</mat-icon>
+          </button>
+        </div>
       </div>
 
-      <div id="card-name">
-        <mat-label>Chupa cuatro</mat-label>
+      <!-- Este overlay se tiene que poner encima del header cuando se hace click en el boton (La animación sale de la parte izquierda del boton, el overlay no debe cubrir al boton en ningun momento)-->
+      <div class="search-overlay" [class.active-overlay]="searchOverlay">
+        <ion-searchbar color="background"></ion-searchbar>
       </div>
-
-      <div id="card-description">
-        <mat-label>El siguiente jugador debe robar <span>cuatro</span> cartas del mazo. El jugador que debe robar las cartas puede responder con otra carta <span>Chupa cuatro</span> o con una carta <span>Chupa dos</span> para aumentar el número de cartas totales que deben ser robadas y pasar el turno al siguiente jugador.</mat-label>
-      </div>
-
-      <div id="special-interactions">
-        <span></span>
-        <mat-label>{{ 'Interacciones especiales' | translate }}</mat-label>
-        <span></span>
-      </div>
-
-      <ul id="card-exceptions">
-        <li>
-          <mat-label>La carta <span>Parry</span> puede actuar como un cambio de sentido y devolver la cadena de cartas totales que deben ser robadas.</mat-label>
-        </li>
-        <li>
-          <mat-label>La carta <span>Thanos - Gema azul</span> disminuir a la mitad el número de cartas totales que deben ser robadas.</mat-label>
-        </li>
-        <li>
-          <mat-label>Esta carta no puede ser denegada por una carta <span>Turno prohibido</span> ni por una carta <span>Cambiar sentido</span>.</mat-label>
-        </li>
-      </ul>
     </div>
-  </div>
-</ion-content>
+  </ion-content>
+</div>

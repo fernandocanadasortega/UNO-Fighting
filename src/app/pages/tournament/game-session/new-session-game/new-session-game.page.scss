@@ -13,15 +13,6 @@
   overflow-y: auto;
 }
 
-#header-background {
-  display: flex;
-  align-items: center;
-
-  .search-button {
-    margin-left: 15px;
-  }
-}
-
 #header {
   display: flex;
   align-items: center;
@@ -35,26 +26,56 @@
   }
 }
 
+#header.active-overlay {
+  animation-name: hide-header; // Llamar animación desde typescript
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hide-header {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 
 .search-overlay {
   position: absolute;
   visibility: hidden;
+  display: flex;
   align-items: center;
   z-index: 105;
   width: 0px;
-  top: 2px;
-  right: 93px;
-  background: var(--ion-background-color, #fff);
+  background-color: var(--ion-color-background-alter);
+  color: var(--ion-color-dark);
+  padding-right: 15px;
+  border-radius: 20px;
 
-  ion-searchbar {
-    padding: 0px;
-    margin-left: 15px;
+  input {
+    flex: 1 1 auto;
+    max-width: 100%;
+    background: transparent;
+    border: 0px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  input:focus {
+    outline: none;
   }
 }
 
 .search-overlay.active-overlay {
-  animation-name: activate-overlay;
-  animation-duration: 0.2s;
+  animation-name: activate-overlay; // Llamar animación desde typescript
+  animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -62,14 +83,19 @@
 @keyframes activate-overlay {
   0% {
     width: 0px;
-    opacity: 0.5;
+    opacity: 0.3;
     visibility: visible;
+    right: 93px; // 93px = 48px (Tamaño del boton de búsqueda) + 15px (padding derecho del background) + 15px (padding izquierdo del background) + 15px (padding izquierdo de seperación)
+  }
+
+  40% {
+    right: 93px; // 93px = 48px (Tamaño del boton de búsqueda) + 15px (padding derecho del background) + 15px (padding izquierdo del background) + 15px (padding izquierdo de seperación)
   }
 
   100% {
-    width: calc(100vw - 93px); // 93px = 48px (Tamaño del boton de búsqueda) + 15px (padding derecho del background) + 15px (padding izquierdo de seperación) + 15px (Separación adicional)
+    width: calc(100vw - 30px); // 30px = 15px (padding derecho del background) + 15px (padding izquierdo del background) + 15px (Separación adicional)
     opacity: 1;
     visibility: visible;
+    right: 15px;
   }
 }
-

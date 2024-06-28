@@ -5,25 +5,23 @@
     </ion-refresher>
 
     <div id="background">
-      <div id="header-background">
-        <div id="header">
-          <button mat-icon-button id="return-button" (click)="closeModal()">
-            <mat-icon>arrow_back</mat-icon>
-          </button>
-          <mat-label>Nueva partida</mat-label>
-        </div>
-
+      <div id="header" [class.active-overlay]="searchOverlay">
+        <button mat-icon-button id="return-button" (click)="closeModal()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <mat-label>Nueva partida</mat-label>
         <span class="separator"></span>
-        <div>
-          <button mat-icon-button class="search-button" (click)="showSearchOverlay()">
-            <mat-icon>{{ searchOverlay ? 'search_off' : 'search' }}</mat-icon>
-          </button>
-        </div>
+        <button mat-icon-button class="search-button" (click)="showSearchOverlay()">
+          <mat-icon>{{ searchOverlay ? 'search_off' : 'search' }}</mat-icon>
+        </button>
       </div>
 
       <!-- Este overlay se tiene que poner encima del header cuando se hace click en el boton (La animación sale de la parte izquierda del boton, el overlay no debe cubrir al boton en ningun momento)-->
       <div class="search-overlay" [class.active-overlay]="searchOverlay">
-        <ion-searchbar color="background"></ion-searchbar>
+        <button mat-icon-button (click)="showSearchOverlay()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <input placeholder="Buscar..." />
       </div>
     </div>
   </ion-content>

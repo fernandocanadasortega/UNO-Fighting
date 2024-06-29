@@ -43,6 +43,10 @@ export class GameSessionPage implements OnInit {
     modal.present();
   }
 
+  async manageSession() {
+    console.log('Manage session');
+  }
+
   endSession() {
     // todo - añadir popup de confirmación
     this.utils.navigateReplacingUrl('/tournament');

@@ -5,24 +5,56 @@
     </ion-refresher>
 
     <div id="background">
-      <div id="header" [class.active-overlay]="searchOverlay">
+      <!-- CABECERA DEL MODAL -->
+      <div class="header" [class.active-overlay]="searchOverlay">
         <button mat-icon-button id="return-button" (click)="closeModal()">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <mat-label>Nueva partida</mat-label>
+        <div class="header-label">
+          <mat-label>Nueva partida</mat-label>
+          <mat-label>Seleccionar ganadores</mat-label>
+        </div>
         <span class="separator"></span>
         <button mat-icon-button class="search-button" (click)="showSearchOverlay()">
           <mat-icon>{{ searchOverlay ? 'search_off' : 'search' }}</mat-icon>
         </button>
       </div>
 
-      <!-- Este overlay se tiene que poner encima del header cuando se hace click en el boton (La animación sale de la parte izquierda del boton, el overlay no debe cubrir al boton en ningun momento)-->
+      <!-- OVERLAY CON BARRA DE BÚSQUEDA -->
       <div class="search-overlay" [class.active-overlay]="searchOverlay">
         <button mat-icon-button (click)="showSearchOverlay()">
           <mat-icon>arrow_back</mat-icon>
         </button>
         <input placeholder="Buscar..." />
       </div>
+
+      <!-- PODIO 3 MEJORES JUGADORES DE LA PARTIDA -->
+      <div id="leaderboard">
+        <div class="item" [class.item-selected]="leaderboardItemSelected === 'second'"
+          (click)="leaderboardItemSelected = 'second'">
+          <img src="assets/images/second-place-medal.png" class="medal">
+          <!-- <img src="assets/images/profile.jpg" class="user-image"> -->
+          <mat-icon class="user-image">account_circle</mat-icon>
+          <mat-label class="username">&lrm;</mat-label>
+        </div>
+        <div class="item first-place" [class.item-selected]="leaderboardItemSelected === 'first'"
+          (click)="leaderboardItemSelected = 'first'">
+          <img src="assets/images/first-place-medal.png" class="medal">
+          <img src="assets/images/profile.jpg" class="user-image">
+          <mat-label class="username">Gorpax</mat-label>
+        </div>
+        <div class="item" [class.item-selected]="leaderboardItemSelected === 'thrid'"
+          (click)="leaderboardItemSelected = 'thrid'">
+          <img src="assets/images/third-place-medal.png" class="medal">
+          <!-- <img src="assets/images/profile.jpg" class="user-image"> -->
+          <mat-icon class="user-image">account_circle</mat-icon>
+          <mat-label class="username">&lrm;</mat-label>
+        </div>
+      </div>
+
+
+
+      <!-- TODO - LA LISTA DE PARTICIPANTES SE MOSTRARÁ COMO AL CREAR UN GRUPO DE WHATSAPP -->
     </div>
   </ion-content>
 </div>

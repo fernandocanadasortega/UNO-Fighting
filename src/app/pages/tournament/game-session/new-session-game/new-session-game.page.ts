@@ -15,6 +15,7 @@ import { MaterialComponentsModule } from '../../../../material-components.module
 export class NewSessionGamePage implements OnInit {
 
   public searchOverlay: boolean = false;
+  public leaderboardItemSelected: 'thrid' | 'second' | 'first' = 'first';
 
   constructor(private modalCtrl: ModalController) { }
 

@@ -14,7 +14,7 @@
       </div>
 
       <!-- DETALLES DE LA SESIÓN -->
-      <div id="subheader">
+      <div class="subheader">
         <mat-icon>calendar_month</mat-icon>
         <mat-label>15 de mayo 2024</mat-label>
         <span class="separator"></span>
@@ -44,13 +44,15 @@
         </div>
       </div>
 
-      <!-- AÑADIR PARTIDA E HISTORIAL DE LAS PARTIDAS DE LA SESIÓN -->
-      <div id="session-match-history">
-        <mat-label>Crear o editar partida existente</mat-label>
+      <!-- ADMINISTRAR SESIÓN -->
+      <div class="card-carrousel-container manage-session">
+        <div class="header">
+          <mat-label>Administrar sesión</mat-label>
+        </div>
 
-        <div id="game-match-carrousel">
+        <div class="card-carrousel">
           <!-- AÑADIR PARTIDA -->
-          <mat-card id="new-game-match">
+          <mat-card class="manage-action">
             <mat-card-content matRipple (click)="manageGameMatch()">
               <mat-icon>add_circle</mat-icon>
               <mat-label class="card-header">Elegir ganador</mat-label>
@@ -58,24 +60,63 @@
             </mat-card-content>
           </mat-card>
 
-          <!-- EDITAR PARTIDA -->
-          <mat-card class="game-match-result" *ngFor="let matchResult of [0,0,0,0]">
-            <mat-card-content matRipple (click)="manageGameMatch(matchResult)">
-              <mat-icon>emoji_events</mat-icon>
-              <mat-icon class="edit">edit</mat-icon>
-              <mat-label class="card-header">Ganador</mat-label>
-              <mat-label class="card-value">Gorpax</mat-label>
+          <!-- EDITAR DATOS DE SESIÓN -->
+          <mat-card class="manage-action">
+            <mat-card-content matRipple (click)="manageSession()">
+              <mat-icon>edit_note</mat-icon>
+              <mat-label class="card-header">Cambiar parámetros</mat-label>
+              <mat-label class="card-value">Ajustes</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN -->
+          <mat-card class="manage-action">
+            <mat-card-content matRipple (click)="endSession()">
+              <mat-icon>logout</mat-icon>
+              <mat-label class="card-header">Finalizar y guardar</mat-label>
+              <mat-label class="card-value">Finalizar sesión</mat-label>
             </mat-card-content>
           </mat-card>
         </div>
       </div>
 
-      <span class="separator"></span>
+      <!-- HISTORIAL DE PARTIDAS DE LA SESIÓN -->
+      <div class="session-match-history">
+        <!-- ADMINISTRAR SESIÓN -->
+        <div class="card-carrousel-container" *ngFor="let matchResult of [0,0,0,0]">
+          <div class="header">
+            <mat-label>Partida 1</mat-label>
+            <span class="separator"></span>
+            <button class="edit" mat-button (click)="manageGameMatch(matchResult)">Editar</button>
+          </div>
 
-      <!-- FINALIZAR SESIÓN DE JUEGO -->
-      <button mat-stroked-button color="accent" id="end-session" (click)="endSession()">
-        <mat-label>{{ 'Finalizar sesión' | translate }}</mat-label>
-      </button>
+          <div class="card-carrousel">
+            <mat-card class="game-match-result">
+              <mat-card-content>
+                <img src="assets/images/first-place-medal.png" class="medal">
+                <mat-label class="card-header">Primer puesto</mat-label>
+                <mat-label class="card-value">Gorpax</mat-label>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="game-match-result">
+              <mat-card-content>
+                <img src="assets/images/second-place-medal.png" class="medal">
+                <mat-label class="card-header">Segundo puesto</mat-label>
+                <mat-label class="card-value">Gorpax</mat-label>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="game-match-result">
+              <mat-card-content>
+                <img src="assets/images/third-place-medal.png" class="medal">
+                <mat-label class="card-header">Tercer puesto</mat-label>
+                <mat-label class="card-value">Gorpax</mat-label>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
     </div>
   </ion-content>
 </div>

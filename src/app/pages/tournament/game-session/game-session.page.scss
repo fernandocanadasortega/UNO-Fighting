@@ -27,7 +27,7 @@
 }
 
 
-#subheader {
+.subheader {
   display: flex;
   align-items: center;
   color: var(--ion-color-medium);
@@ -116,11 +116,9 @@
 }
 
 
-
-#session-match-history {
+.card-carrousel-container {
   display: flex;
   flex-flow: column;
-  margin-top: 30px;
 
   ::-webkit-scrollbar { /* Eliminar barra de scroll para Safari and Chrome */
     display: none;
@@ -130,25 +128,47 @@
   scrollbar-width: none;  /* Eliminar barra de scroll para  Firefox */
 }
 
-#session-match-history>mat-label {
-  font-size: 18px;
-  font-weight: bold;
+.card-carrousel-container>div.header {
+  display: flex;
+  align-items: center;
   margin-top: 15px;
-  color: var(--ion-color-dark);
+
+  mat-label {
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--ion-color-dark);
+  }
+
+  button.edit {
+    height: 25px;
+    font-size: 12px;
+    color: var(--ion-color-primary);
+  }
 }
 
-#game-match-carrousel {
+.card-carrousel-container.manage-session {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.card-carrousel {
   display: flex;
   margin: 15px 5px;
   margin-bottom: 0px;
   overflow-x: auto;
+
+  mat-card {
+    margin-left: 20px;
+  }
+
+  mat-card:first-of-type {
+    margin-left: 0px;
+  }
 }
 
-mat-card.game-match-result {
-  margin-left: 20px;
-}
-
-mat-card-content {
+.manage-action mat-card-content,
+.game-match-result mat-card-content {
   display: flex;
   flex-flow: column;
   width: 145px;
@@ -161,14 +181,10 @@ mat-card-content {
     color: var(--ion-color-success);
   }
 
-  mat-icon.edit {
-    position: absolute;
-    top: 8px;
-    right: 9px;
-    width: 18px;
-    height: 18px;
-    font-size: 18px;
-    color: var(--ion-color-primary);
+  img {
+    min-width: 45px;
+    width: 45px;
+    height: 45px;
   }
 
   .card-header {
@@ -183,12 +199,20 @@ mat-card-content {
   }
 }
 
-#new-game-match mat-card-content mat-icon {
-  color: var(--ion-color-primary);
+.manage-action mat-card-content {
+  width: 160px;
+
+  mat-icon {
+    color: var(--ion-color-primary);
+  }
 }
 
 
-#end-session {
-  margin-top: 15px;
-  font-size: 16px;
+.session-match-history {
+  display: flex;
+  flex-flow: column;
+
+  .card-carrousel-container {
+    margin-bottom: 15px;
+  }
 }

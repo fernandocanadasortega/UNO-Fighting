@@ -1,3 +1,5 @@
+@use '../../../../../theme/dotted-border';
+
 #ion-refresher-padding {
   width: 100%;
   height: 100%;
@@ -13,20 +15,34 @@
   overflow-y: auto;
 }
 
-#header {
+
+.header {
   display: flex;
   align-items: center;
   z-index: 100;
+  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  margin-bottom: 5px;
+  padding-bottom: 5px;
 
-  mat-label {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--ion-color-dark);
-    margin-left: 25px;
+  .header-label {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    margin: 0px 25px;
+
+    mat-label {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+    }
+
+    mat-label:first-of-type {
+      font-size: 16px;
+      color: var(--ion-color-dark);
+    }
   }
 }
 
-#header.active-overlay {
+.header.active-overlay {
   animation-name: hide-header; // Llamar animación desde typescript
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
@@ -97,5 +113,67 @@
     opacity: 1;
     visibility: visible;
     right: 15px;
+  }
+}
+
+
+#leaderboard {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  .item {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    padding-top: 5px;
+
+    img.medal {
+      min-width: 45px;
+      width: 45px;
+      height: 45px;
+      margin-bottom: 10px;
+    }
+
+    img.user-image, mat-icon.user-image {
+      width: 55px;
+      height: 55px;
+      font-size: 55px;
+      border-radius: 100%;
+    }
+
+    .username {
+      font-size: 19px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      color: var(--ion-color-dark);
+    }
+  }
+
+  .item.first-place {
+    margin: 0px 40px;
+
+    img.user-image, mat-icon.user-image {
+      min-width: 70px;
+      width: 70px;
+      height: 70px;
+    }
+
+    .username {
+      font-size: 22px;
+    }
+  }
+
+  .item.item-selected {
+    // A lo mejor quito el border dashed que queda muy feo, si te confundes quitas los 3 y los pones de nuevo
+    border: 1px dashed var(--ion-color-primary);
+    // TODO - Arreglar, que salga por las 4 direcciones
+    /* @include dotted-border.dottedBorder($orientation:horizontal, $position:top);
+    @include dotted-border.dottedBorder($orientation:horizontal, $position:bottom);
+    @include dotted-border.dottedBorder($orientation:vertical, $position:left);
+    @include dotted-border.dottedBorder($orientation:vertical, $position:right); */
   }
 }

@@ -35,6 +35,11 @@ export class NewSessionGamePage implements OnInit {
     this.searchOverlay = this.searchOverlay ? false : true;
   }
 
+  selectWinners() {
+    console.log('GANADORES SELECCIONADOS');
+    this.modalCtrl.dismiss();
+  }
+
   public closeModal() {
     this.modalCtrl.dismiss();
   }

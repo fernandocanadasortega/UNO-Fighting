@@ -28,33 +28,38 @@
         <input placeholder="Buscar..." />
       </div>
 
-      <!-- PODIO 3 MEJORES JUGADORES DE LA PARTIDA -->
-      <div id="leaderboard">
-        <div class="item" [class.item-selected]="leaderboardItemSelected === 'second'"
-          (click)="leaderboardItemSelected = 'second'">
-          <img src="assets/images/second-place-medal.png" class="medal">
-          <!-- <img src="assets/images/profile.jpg" class="user-image"> -->
-          <mat-icon class="user-image">account_circle</mat-icon>
-          <mat-label class="username">&lrm;</mat-label>
-        </div>
-        <div class="item first-place" [class.item-selected]="leaderboardItemSelected === 'first'"
-          (click)="leaderboardItemSelected = 'first'">
-          <img src="assets/images/first-place-medal.png" class="medal">
-          <img src="assets/images/profile.jpg" class="user-image">
-          <mat-label class="username">Gorpax</mat-label>
-        </div>
-        <div class="item" [class.item-selected]="leaderboardItemSelected === 'thrid'"
-          (click)="leaderboardItemSelected = 'thrid'">
-          <img src="assets/images/third-place-medal.png" class="medal">
-          <!-- <img src="assets/images/profile.jpg" class="user-image"> -->
-          <mat-icon class="user-image">account_circle</mat-icon>
-          <mat-label class="username">&lrm;</mat-label>
+      <!-- LISTADO DE LOS JUGADORES GANADORES -->
+      <div class="game-winners">
+        <div class="winner-profile" *ngFor="let winner of [0,0,0, 0, 0]">
+          <div class="winner-image">
+            <img src="assets/images/profile.jpg" class="image">
+            <mat-icon class="delete-winner">cancel</mat-icon>
+          </div>
+          <mat-label class="winner-username">Napo</mat-label>
+          <mat-label class="winner-position">Segundo puesto</mat-label>
         </div>
       </div>
 
+      <!-- LISTADO DE TODOS LOS JUGADORES PARTICIPANTES -->
+      <div class="game-participants">
+        <div class="participant" *ngFor="let participant of [0,0,0,0,0]">
+          <div class="participant-image">
+            <img src="assets/images/profile.jpg" class="image">
+            <mat-icon class="participant-check">check_circle</mat-icon>
+          </div>
 
+          <div class="participant-details">
+            <mat-label class="username">Napo</mat-label>
+            <mat-label class="status">Estoy cuatro univerlos paralelos delante tuya</mat-label>
+          </div>
+        </div>
+      </div>
 
-      <!-- TODO - LA LISTA DE PARTICIPANTES SE MOSTRARÁ COMO AL CREAR UN GRUPO DE WHATSAPP -->
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="selectWinners()">
+          <mat-icon>arrow_forward</mat-icon>
+        </ion-fab-button>
+      </ion-fab>
     </div>
   </ion-content>
 </div>

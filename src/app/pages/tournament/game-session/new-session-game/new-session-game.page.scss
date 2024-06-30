@@ -1,4 +1,5 @@
 @use '../../../../../theme/dotted-border';
+@import '../../../../../theme/utils.scss'; // TODO - ELIMINAR @import, sustituir por @use
 
 #ion-refresher-padding {
   width: 100%;
@@ -117,63 +118,145 @@
 }
 
 
-#leaderboard {
+// LISTADO DE LOS JUGADORES GANADORES
+.game-winners {
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+  padding-top: 0px;
+  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  overflow-x: auto;
 
-  .item {
+  // Eliminar barra de scroll para Safari and Chrome
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; // Eliminar barra de scroll para Internet Explorer 10+
+  scrollbar-width: none; // Eliminar barra de scroll para  Firefox
+
+  .winner-profile {
+    min-width: 80px;
     display: flex;
     flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 10px;
-    padding-top: 5px;
+    margin-left: 30px;
+    text-align: center;
+    // TODO - CUANDO EL TEXTO ES LARGO SE PONE DEBAJO, DEBERÍA TENER EL TAMAÑO NECESARIO PARA ESCRIBIR EL TEXTO EN UNA SOLA LÍNEA
 
-    img.medal {
-      min-width: 45px;
-      width: 45px;
-      height: 45px;
-      margin-bottom: 10px;
+    .winner-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      img.image {
+        min-width: 55px;
+        width: 55px;
+        height: 55px;
+        border-radius: 100%;
+      }
+
+      mat-icon.delete-winner {
+        position: absolute;
+        right: 2px;
+        bottom: -7px;
+        color: var(--ion-color-medium);
+        background-color: var(--ion-background-color, #fff);
+        border-radius: 100%;
+      }
     }
 
-    img.user-image, mat-icon.user-image {
-      width: 55px;
-      height: 55px;
-      font-size: 55px;
-      border-radius: 100%;
-    }
-
-    .username {
-      font-size: 19px;
-      font-weight: bold;
+    .winner-username {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: center;
+      font-size: 16px;
+      margin-top: 10px;
       text-align: center;
-      margin-top: 15px;
       color: var(--ion-color-dark);
     }
-  }
 
-  .item.first-place {
-    margin: 0px 40px;
-
-    img.user-image, mat-icon.user-image {
-      min-width: 70px;
-      width: 70px;
-      height: 70px;
-    }
-
-    .username {
-      font-size: 22px;
+    .winner-position {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--ion-color-medium);
     }
   }
 
-  .item.item-selected {
-    // A lo mejor quito el border dashed que queda muy feo, si te confundes quitas los 3 y los pones de nuevo
-    border: 1px dashed var(--ion-color-primary);
-    // TODO - Arreglar, que salga por las 4 direcciones
-    /* @include dotted-border.dottedBorder($orientation:horizontal, $position:top);
-    @include dotted-border.dottedBorder($orientation:horizontal, $position:bottom);
-    @include dotted-border.dottedBorder($orientation:vertical, $position:left);
-    @include dotted-border.dottedBorder($orientation:vertical, $position:right); */
+  .winner-profile:first-child {
+    margin-left: 0px;
+  }
+}
+
+
+// LISTADO DE TODOS LOS JUGADORES PARTICIPANTES
+.game-participants {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  margin: 0px 5px;
+  overflow-y: auto;
+
+  .participant {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    .participant-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      img.image {
+        min-width: 55px;
+        width: 55px;
+        height: 55px;
+        border-radius: 100%;
+      }
+
+      mat-icon.participant-check {
+        position: absolute;
+        right: -6px;
+        bottom: -8px;
+        color: var(--ion-color-success);
+        background-color: var(--ion-background-color, #fff);
+        border-radius: 100%;
+      }
+    }
+
+    .participant-details {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      margin-left: 20px;
+
+      .username {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--ion-color-dark);
+      }
+
+      .status {
+        font-size: 12px;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
+
+  .participant:first-child {
+    margin-top: 12px;
+  }
+}
+
+
+// GUARDAR GANADORES
+ion-fab {
+  margin-right: 5px;
+
+  ion-fab-button {
+    --border-radius: 15px;
+    --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   }
 }

@@ -1,6 +1,15 @@
-<ion-content>
-  <div id="background">
-    <header></header>
-    <create-search-tournament (click)="navigateToSession()"></create-search-tournament>
-  </div>
-</ion-content>
+<div id="ion-refresher-padding">
+  <ion-content>
+    <!-- TODO - EL REFRESHER SOLO DEBERÍA ACTIVARSE CUANDO ESTÁS ARRIBA EN LA PANTALLA, NO AL HACER EL GESTO DE HACER SCROLL HACIA ARRIBA -->
+    <ion-refresher slot="fixed" (ionRefresh)="refreshGameSession($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div id="background">
+      <header [headerMessage]="'Torneo verano 2024'" [subheaderMessage]="'Creado el 24 de mayo 2024'" [tooltipMessage]="'Torneo verano 2024'"></header>
+      <!-- <create-search-tournament></create-search-tournament> -->
+
+      <!-- Mostrar una descripción con la de youtube (Ejemplo en exalidraw) -->
+    </div>
+  </ion-content>
+</div>

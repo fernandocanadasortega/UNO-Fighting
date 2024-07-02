@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'services/utils.service';
@@ -14,6 +14,10 @@ import { SideMenuComponent } from '../side-menu/side-menu.component';
   imports: [IonicModule, CommonModule, TranslateModule, MaterialComponentsModule, SideMenuComponent]
 })
 export class HeaderComponent  implements OnInit {
+
+  @Input() tooltipMessage?: string;
+  @Input() headerMessage?: string;
+  @Input() subheaderMessage?: string;
 
   constructor(public utils: UtilsService) { }
 

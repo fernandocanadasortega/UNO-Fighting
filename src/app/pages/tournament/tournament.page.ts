@@ -22,4 +22,11 @@ export class Tournament {
   navigateToSession() {
     this.utils.navigateReplacingUrl('tournament/game-session');
   }
+
+  refreshGameSession(refreshEvent: any) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      refreshEvent.target.complete();
+    }, 1000);
+  }
 }

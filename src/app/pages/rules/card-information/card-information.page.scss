@@ -7,8 +7,29 @@
   overflow-y: auto;
 }
 
-#return-button {
-  margin-bottom: 15px;
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+
+  .header-label {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    margin: 0px 25px;
+
+    mat-label {
+      font-size: 13px;
+      color: var(--ion-color-medium);
+    }
+
+    mat-label:first-of-type {
+      font-size: 16px;
+      color: var(--ion-color-dark);
+    }
+  }
 }
 
 #card-container {

@@ -1,16 +1,20 @@
 <div id="ion-refresher-padding">
   <ion-content>
+    <!-- TODO - EL REFRESHER SOLO DEBERÍA ACTIVARSE CUANDO ESTÁS ARRIBA EN LA PANTALLA, NO AL HACER EL GESTO DE HACER SCROLL HACIA ARRIBA -->
     <ion-refresher slot="fixed" (ionRefresh)="refreshGameSession($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
     <div id="background">
       <!-- UBICACIÓN DE LA SESIÓN -->
-      <div id="header">
+      <div class="header">
         <button mat-icon-button id="return-button" (click)="navigateTournament()">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <mat-label>Sesión de Playa</mat-label>
+        <div class="header-label" matTooltip="Ubicación seleccionada para la sesión de juego">
+          <mat-label>Sesión de juego</mat-label>
+          <mat-label>Piscina de caña</mat-label>
+        </div>
       </div>
 
       <!-- DETALLES DE LA SESIÓN -->

@@ -48,6 +48,31 @@
         </div>
       </div>
 
+      <!-- AÑADIR PARTIDA -->
+      <mat-card class="add-game-container">
+        <mat-card-content (click)="manageGameMatch()">
+          <div class="add-game" matRipple>
+            <div class="add-game-icon-display">
+              <div class="icon-container">
+                <div class="mini-icon">
+                  <mat-icon>add</mat-icon>
+                </div>
+                <mat-icon>emoji_events</mat-icon>
+              </div>
+              <mat-label>Elegir ganador(es)</mat-label>
+            </div>
+            <div class="add-game-information">
+              <mat-label class="header">Nueva partida</mat-label>
+              <mat-label class="subheader">Solo se registran los jugadores en las tres primeras posiciones, por debajo de estas se registra como partida perdida.</mat-label>
+            </div>
+          </div>
+          <div class="new-game" matRipple>
+            <mat-icon>add</mat-icon>
+            <mat-label>Nueva partida</mat-label>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
       <!-- ADMINISTRAR SESIÓN -->
       <div class="card-carrousel-container manage-session">
         <div class="header">
@@ -55,15 +80,6 @@
         </div>
 
         <div class="card-carrousel">
-          <!-- AÑADIR PARTIDA -->
-          <mat-card class="manage-action">
-            <mat-card-content matRipple (click)="manageGameMatch()">
-              <mat-icon>add_circle</mat-icon>
-              <mat-label class="card-header">Elegir ganador</mat-label>
-              <mat-label class="card-value">Nueva partida</mat-label>
-            </mat-card-content>
-          </mat-card>
-
           <!-- EDITAR DATOS DE SESIÓN -->
           <mat-card class="manage-action">
             <mat-card-content matRipple (click)="manageSession()">
@@ -73,12 +89,21 @@
             </mat-card-content>
           </mat-card>
 
-          <!-- FINALIZAR SESIÓN -->
+          <!-- FINALIZAR SESIÓN Y GUARDAR -->
           <mat-card class="manage-action">
             <mat-card-content matRipple (click)="endSession()">
               <mat-icon>logout</mat-icon>
               <mat-label class="card-header">Finalizar y guardar</mat-label>
               <mat-label class="card-value">Finalizar sesión</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN SIN GUARDAR -->
+          <mat-card class="manage-action danger">
+            <mat-card-content matRipple (click)="endSession()">
+              <mat-icon>logout</mat-icon>
+              <mat-label class="card-header">Finalizar sin guardar</mat-label>
+              <mat-label class="card-value">Eliminar sesión</mat-label>
             </mat-card-content>
           </mat-card>
         </div>

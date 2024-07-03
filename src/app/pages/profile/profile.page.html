@@ -40,12 +40,12 @@
         <mat-label>25</mat-label>
       </div>
 
-      <div class="stat hightlighted favorite-card" matTooltip="Carta favorita">
-        <mat-icon>view_carousel</mat-icon>
+      <div class="stat hightlighted" matTooltip="Partidas jugadas">
+        <mat-icon>sports_esports</mat-icon>
         <div class="stat-header">
-          <mat-label>Carta favorita</mat-label>
+          <mat-label>Partidas jugadas</mat-label>
         </div>
-        <mat-label>Cambio sentido</mat-label>
+        <mat-label>32</mat-label>
       </div>
 
       <div class="stat" matTooltip="Porcentaje victorias">
@@ -57,9 +57,30 @@
       </div>
     </div>
 
+    <!-- CARTA FAVORITA -->
+    <mat-card>
+      <mat-card-content class="favorite-card-container">
+        <div class="favorite-card">
+          <div class="card-display">
+            <img src="assets/images/+4.jpg" alt="card">
+            <mat-label>Gema Roja</mat-label>
+          </div>
+          <div class="card-information">
+            <mat-label class="header">Thanos &nbsp; - &nbsp; Gema Roja</mat-label>
+            <mat-label class="subheader">Thanos - Gema Roja ha sido elegida como <b>carta favorita</b>.<br></mat-label>
+            <mat-label class="subheader"><i>"Es la mejor carta del juego con bastante diferencia"</i></mat-label>
+          </div>
+        </div>
+        <div class="show-card">
+          <mat-icon>visibility</mat-icon>
+          <mat-label>Detalles de la carta</mat-label>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
     <!-- ULTIMAS PARTIDAS JUGADAS -->
     <mat-card>
-      <mat-card-content>
+      <mat-card-content class="tracker">
         <mat-label class="card-header">Ultimas sesiones de juego</mat-label>
         <div class="table-header">
           <mat-label>Ubicación</mat-label>
@@ -94,7 +115,7 @@
 
     <!-- LUGARES DONDE MÁS HAS GANADO -->
     <mat-card>
-      <mat-card-content>
+      <mat-card-content class="tracker">
         <mat-label class="card-header">Mayor porcentaje de victoria</mat-label>
         <div class="table-header">
           <mat-label>Ubicación</mat-label>

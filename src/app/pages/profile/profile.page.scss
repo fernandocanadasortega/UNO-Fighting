@@ -9,6 +9,15 @@
   overflow-y: auto;
 }
 
+mat-card {
+  margin-top: 30px;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+
 
 /**
  * CABECERA CON INFORMACIÓN DEL PERFIL
@@ -128,7 +137,7 @@
 }
 
 #highlighted-stats .stat {
-  width: 30%;
+  width: 33.33%;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -164,37 +173,81 @@
 }
 
 #highlighted-stats .stat.hightlighted {
-  width: 40%;
   margin: 0px 11px;
   padding: 0px 12px;
   border-left: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
   border-right: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
 }
 
-#highlighted-stats .stat.hightlighted.favorite-card {
-  // Descripción de la estadistica
-  .stat-header {
-    margin-bottom: 0px !important;
 
-    mat-label {
-      font-size: 12px;
-      color: var(--ion-color-medium);
-      @extend .text-overflow;
+
+/**
+ * CARTA FAVORITA
+ */
+mat-card-content.favorite-card-container {
+  padding: 0px;
+
+  .favorite-card {
+    display: flex;
+    padding: 16px;
+
+    .card-display {
+      display: flex;
+      flex-flow: column;
+      margin-right: 27px;
+
+      img {
+        min-width: 70px;
+        width: 80px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 7px;
+      }
+
+      mat-label {
+        font-size: 14px;
+        color: var(--ion-color-medium);
+        text-align: center;
+      }
+    }
+
+    .card-information {
+      display: flex;
+      flex-flow: column;
+      margin-top: 5px;
+
+      mat-label.header {
+        font-size: 18px;
+        color: var(--ion-color-dark);
+      }
+
+      mat-label.subheader {
+        margin-top: 8px;
+        font-size: 14px;
+        color: var(--ion-color-medium);
+      }
     }
   }
 
-  // Contador de la estadistica
-  mat-label {
+  .show-card {
     display: flex;
-    flex: 1 1 auto;
+    justify-content: center;
     align-items: center;
-    font-size: 16px;
-    margin-top: 3px;
-  }
-}
+    padding: 5px 0px;
+    border-radius: var(--mdc-elevated-card-container-shape);
+    background-color: var(--ion-color-primary);
 
-#highlighted-stats>span.stat-separator {
-  height: 100%;
+    mat-icon {
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      margin-right: 6px;
+    }
+
+    mat-label {
+      font-size: 13px;
+    }
+  }
 }
 
 
@@ -202,13 +255,7 @@
 /**
  * ULTIMAS PARTIDAS JUGADAS / LUGARES DONDE MÁS HAS GANADO
  */
-#background mat-card {
-  margin-top: 30px;
-}
-
-mat-card-content {
-  padding: 16px;
-
+mat-card-content.tracker {
   .card-header {
     font-size: 18px;
     font-weight: bold;

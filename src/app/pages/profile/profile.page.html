@@ -78,188 +78,131 @@
       </mat-card-content>
     </mat-card>
 
-    <!-- ULTIMAS PARTIDAS JUGADAS -->
-    <mat-card>
-      <mat-card-content class="tracker">
-        <mat-label class="card-header">Ultimas sesiones de juego</mat-label>
-        <div class="table-header">
-          <mat-label>Ubicación</mat-label>
-          <span class="separator"></span>
-          <mat-label>Victorias</mat-label>
-        </div>
 
-        <span class="table-separator"></span>
+    <swiper-container class="mySwiper" pagination="true">
+      <swiper-slide>Poner las opciones de menu de unicaja</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 6</swiper-slide>
+      <swiper-slide>Slide 7</swiper-slide>
+      <swiper-slide>Slide 8</swiper-slide>
+      <swiper-slide>Slide 9</swiper-slide>
+    </swiper-container>
 
-        <div class="table-body">
-          <div class="table-entry" *ngFor="let entry of [0, 0, 0]">
-            <img src="assets/images/profile.jpg" alt="profile">
-            <div class="left-stats">
-              <mat-label>Playa</mat-label>
-              <mat-label>55 partidas jugadas</mat-label>
-            </div>
-            <span class="separator"></span>
-            <div class="right-stats">
-              <div>
-                <mat-icon>emoji_events</mat-icon>
-                <mat-label>25</mat-label>
-              </div>
-              <div>
-                <mat-icon>person</mat-icon>
-                <mat-label>3</mat-label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-
-    <!-- LUGARES DONDE MÁS HAS GANADO -->
-    <mat-card>
-      <mat-card-content class="tracker">
-        <mat-label class="card-header">Mayor porcentaje de victoria</mat-label>
-        <div class="table-header">
-          <mat-label>Ubicación</mat-label>
-          <span class="separator"></span>
-          <mat-label>% Victorias</mat-label>
-        </div>
-
-        <span class="table-separator"></span>
-
-        <div class="table-body">
-          <div class="table-entry" *ngFor="let entry of [0, 0, 0]">
-            <img src="assets/images/profile.jpg" alt="profile">
-            <div class="left-stats">
-              <mat-label>Playa</mat-label>
-              <mat-label>55 partidas jugadas</mat-label>
-            </div>
-            <span class="separator"></span>
-            <div class="right-stats">
-              <div>
-                <mat-icon>percent</mat-icon>
-                <mat-label>52,7</mat-label>
-              </div>
-              <div>
-                <mat-icon>emoji_events</mat-icon>
-                <mat-label>25</mat-label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
 
     <!-- TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL -->
     <mat-card>
       <mat-card-content class="table-container">
-        <mat-tab-group [disableRipple]="true" [selectedIndex]="1">
-          <mat-tab label="General">
-            <ng-container [ngTemplateOutlet]="overviewTab"></ng-container>
-          </mat-tab>
-          <mat-tab label="Estadísticas">
-            <ng-container [ngTemplateOutlet]="performanceTab"></ng-container>
-          </mat-tab>
-          <mat-tab label="Social">
-            <ng-container [ngTemplateOutlet]="socialTab"></ng-container>
-          </mat-tab>
-        </mat-tab-group>
+        <!-- init="false" impide que el componente se carge hasta que se llame a la clase initialize() -->
+        <swiper-container #profileInformationSwiperHeader class="profile-information swiper-header">
+          <swiper-slide>
+            <div class="swiper-header-container" [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.OVERVIEW">
+              <mat-label>General</mat-label>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-header-container" [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.STATS">
+              <mat-label>Estadísticas</mat-label>
+            </div>
+          </swiper-slide>
+          <swiper-slide [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.SOCIAL">
+            <div class="swiper-header-container">
+              <mat-label>Social</mat-label>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+
+        <swiper-container #profileInformationSwiperBody class="profile-information swiper-body" thumbs-swiper=".profile-information.swiper-header">
+          <swiper-slide>
+            <div class="table">
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>thenapo212@gmail.com</mat-label>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>Napo</mat-label>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>31 / 05 / 2024</mat-label>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="table performance-table-tab">
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Partidas jugadas' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>25</mat-label>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Partidas ganadas' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>14</mat-label>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Porcentaje de victoria' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>54%</mat-label>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-header">
+                  <mat-label>{{ 'Victorias consecutivas' | uppercase }}</mat-label>
+                </div>
+                <div class="stat-value">
+                  <mat-label>4</mat-label>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <!-- TODO - FALTA MODIFICAR VISUALMENTE PARA QUE SE PAREZCA A TABLA DE WINRATE -->
+            <!-- todo - solo visible en tu perfil, no si miras perfil ajeno -->
+            <div class="table social-table-tab">
+              <div matRipple class="friend" *ngFor="let entry of [0, 0, 0, 0, 0, 0]">
+                <div class="friend-name">
+                  <mat-label>Gorpax</mat-label>
+                </div>
+                <div class="friend-stat">
+                  <mat-icon>percent</mat-icon>
+                  <mat-label>52,7</mat-label>
+                </div>
+                <div class="friend-stat">
+                  <mat-icon>emoji_events</mat-icon>
+                  <mat-label>25</mat-label>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
       </mat-card-content>
     </mat-card>
   </div>
 </ion-content>
-
-<ng-template #overviewTab>
-  <div class="table">
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Correo electrónico' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>thenapo212@gmail.com</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Nombre de usuario' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>Napo</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Fecha de creación' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>31 / 05 / 2024</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Carta favorita' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>Thanos</mat-label>
-        <mat-label class="sub-stat-value">Verde</mat-label>
-      </div>
-    </div>
-  </div>
-</ng-template>
-
-<ng-template #performanceTab>
-  <div class="table performance-table-tab">
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Partidas jugadas' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>25</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Partidas ganadas' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>14</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Porcentaje de victoria' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>54%</mat-label>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-header">
-        <mat-label>{{ 'Victorias consecutivas' | uppercase }}</mat-label>
-      </div>
-      <div class="stat-value">
-        <mat-label>4</mat-label>
-      </div>
-    </div>
-  </div>
-</ng-template>
-
-<!-- todo - solo visible en tu perfil, no si miras perfil ajeno -->
-<ng-template #socialTab>
-  <div class="table social-table-tab">
-    <div matRipple class="friend" *ngFor="let entry of [0, 0, 0]">
-      <div class="friend-name">
-        <mat-label>Gorpax</mat-label>
-      </div>
-      <div class="friend-stat">
-        <mat-icon>percent</mat-icon>
-        <mat-label>52,7</mat-label>
-      </div>
-      <div class="friend-stat">
-        <mat-icon>emoji_events</mat-icon>
-        <mat-label>25</mat-label>
-      </div>
-    </div>
-  </div>
-</ng-template>
 
 <ion-action-sheet trigger="profile-image-options" header="Modificar imagen de perfil" [buttons]="profileImageButtons">
 </ion-action-sheet>

@@ -1,0 +1,57 @@
+<div id="ion-refresher-padding">
+  <ion-content>
+    <!-- TODO - EL REFRESHER SOLO DEBERÍA ACTIVARSE CUANDO ESTÁS ARRIBA EN LA PANTALLA, NO AL HACER EL GESTO DE HACER SCROLL HACIA ARRIBA -->
+    <ion-refresher slot="fixed" (ionRefresh)="refreshMatchHistory($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div id="background">
+      <!-- UBICACIÓN DE LA SESIÓN -->
+      <div class="header">
+        <button mat-icon-button id="return-button" (click)="returnProfile()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div class="header-label">
+          <mat-label>Estadisticas del usuario</mat-label>
+          <mat-label>Bottom text</mat-label>
+        </div>
+      </div>
+
+    <!-- LUGARES DONDE MÁS HAS GANADO -->
+    <mat-card>
+      <mat-card-content class="tracker">
+        <mat-label class="card-header">Mayor porcentaje de victoria</mat-label>
+        <div class="table-header">
+          <mat-label>Ubicación</mat-label>
+          <span class="separator"></span>
+          <mat-label>% Victorias</mat-label>
+        </div>
+
+        <span class="table-separator"></span>
+
+        <div class="table-body">
+          <div class="table-entry" *ngFor="let entry of [0, 0, 0]">
+            <img src="assets/images/profile.jpg" alt="profile">
+            <div class="left-stats">
+              <mat-label>Playa</mat-label>
+              <mat-label>55 partidas jugadas</mat-label>
+            </div>
+            <span class="separator"></span>
+            <div class="right-stats">
+              <div>
+                <mat-icon>percent</mat-icon>
+                <mat-label>52,7</mat-label>
+              </div>
+              <div>
+                <mat-icon>emoji_events</mat-icon>
+                <mat-label>25</mat-label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    </div>
+  </ion-content>
+</div>

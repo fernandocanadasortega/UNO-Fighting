@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { IonicModule, Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from './services/languages.service';
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule]
 })
 export class AppComponent {
 

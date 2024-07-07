@@ -31,6 +31,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
   },
   {
+    path: 'profile/user-match-history',
+    loadComponent: () => import('./pages/profile/user-match-history/user-match-history.page').then( m => m.UserMatchHistoryPage)
+  },
+  {
+    path: 'profile/user-stats-detail',
+    loadComponent: () => import('./pages/profile/user-stats-detail/user-stats-detail.page').then( m => m.UserStatsDetailPage)
+  },
+  {
     path: 'modify-profile',
     loadComponent: () => import('./pages/profile/modify-profile/modify-profile.page').then( m => m.ModifyProfilePage)
   },

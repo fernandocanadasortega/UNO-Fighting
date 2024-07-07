@@ -1,0 +1,48 @@
+<div id="ion-refresher-padding">
+  <ion-content>
+    <!-- TODO - EL REFRESHER SOLO DEBERÍA ACTIVARSE CUANDO ESTÁS ARRIBA EN LA PANTALLA, NO AL HACER EL GESTO DE HACER SCROLL HACIA ARRIBA -->
+    <ion-refresher slot="fixed" (ionRefresh)="refreshMatchHistory($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div id="background">
+      <!-- UBICACIÓN DE LA SESIÓN -->
+      <div class="header">
+        <button mat-icon-button id="return-button" (click)="returnProfile()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div class="header-label">
+          <mat-label>Historial de partidas</mat-label>
+          <mat-label>Listado de las sesiones de juego</mat-label>
+        </div>
+      </div>
+
+      <div class="card-container" *ngFor="let sessionsOfDay of [0, 0, 0, 0]">
+        <mat-label class="card-container-header">Miércoles 28 de Mayo del 2023</mat-label>
+
+        <mat-card *ngFor="let session of [0, 0, 0]">
+          <mat-card-content>
+              <div class="table-entry">
+                <img src="assets/images/profile.jpg" alt="profile">
+                <div class="left-stats">
+                  <mat-label>Playa</mat-label>
+                  <mat-label>Primer puesto</mat-label>
+                </div>
+                <span class="separator"></span>
+                <div class="right-stats">
+                  <div>
+                    <mat-icon>emoji_events</mat-icon>
+                    <mat-label>25</mat-label>
+                  </div>
+                  <div>
+                    <mat-icon>sports_esports</mat-icon>
+                    <mat-label>55</mat-label>
+                  </div>
+                </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </ion-content>
+</div>

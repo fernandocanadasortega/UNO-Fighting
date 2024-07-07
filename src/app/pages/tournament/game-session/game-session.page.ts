@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,7 +12,8 @@ import { UtilsService } from 'services/utils.service';
   templateUrl: './game-session.page.html',
   styleUrls: ['./game-session.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, TranslateModule, MaterialComponentsModule, HeaderComponent]
+  imports: [IonicModule, CommonModule, TranslateModule, MaterialComponentsModule, HeaderComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GameSessionPage implements OnInit {
 
@@ -23,6 +24,40 @@ export class GameSessionPage implements OnInit {
 
   ngOnInit() {
     console.log('Cargan la sesión de juego');
+    // this.initializeSwiper();
+  }
+
+  initializeSwiper() {
+    // swiper element
+    const swiper = document.querySelector('swiper-container');
+
+    if (!swiper) {
+      return;
+    }
+
+    // swiper parameters
+    const swiperParams = {
+      slidesPerView: 1,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+      on: {
+        init() {
+          console.log('Método ON - init');
+        },
+      }
+    };
+
+    // now we need to assign all parameters to Swiper element
+    Object.assign(swiper, swiperParams);
+
+    // and now initialize it
+    swiper.initialize();
   }
 
   navigateTournament() {

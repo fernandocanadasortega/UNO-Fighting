@@ -79,17 +79,21 @@
     </mat-card>
 
 
-    <swiper-container class="mySwiper" pagination="true">
-      <swiper-slide>Poner las opciones de menu de unicaja</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide>
-      <swiper-slide>Slide 9</swiper-slide>
-    </swiper-container>
+    <div class="slider-prueba-wrapper">
+      <swiper-container #profileActionsSwiper class="mySwiper">
+        <swiper-slide *ngFor="let item of [0,0,0,0,0,0,0]">
+          <mat-card class="manage-action">
+            <mat-card-content matRipple>
+              <mat-icon>edit_note</mat-icon>
+              <mat-label class="card-header">Cambiar parámetros</mat-label>
+              <mat-label class="card-value">Ajustes</mat-label>
+            </mat-card-content>
+          </mat-card>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+
 
 
     <!-- TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL -->
@@ -98,12 +102,14 @@
         <!-- init="false" impide que el componente se carge hasta que se llame a la clase initialize() -->
         <swiper-container #profileInformationSwiperHeader class="profile-information swiper-header">
           <swiper-slide>
-            <div class="swiper-header-container" [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.OVERVIEW">
+            <div class="swiper-header-container"
+              [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.OVERVIEW">
               <mat-label>General</mat-label>
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="swiper-header-container" [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.STATS">
+            <div class="swiper-header-container"
+              [class.show-active-slide]="activeInformationSwiperHeader == informationSwiperHeaderType.STATS">
               <mat-label>Estadísticas</mat-label>
             </div>
           </swiper-slide>
@@ -114,7 +120,8 @@
           </swiper-slide>
         </swiper-container>
 
-        <swiper-container #profileInformationSwiperBody class="profile-information swiper-body" thumbs-swiper=".profile-information.swiper-header">
+        <swiper-container #profileInformationSwiperBody class="profile-information swiper-body"
+          thumbs-swiper=".profile-information.swiper-header">
           <swiper-slide>
             <div class="table">
               <div class="stat">

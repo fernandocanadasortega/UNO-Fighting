@@ -24,6 +24,7 @@ export enum InformationSwiperHeaderType {
 })
 export class ProfilePage implements OnInit, AfterViewInit {
 
+  @ViewChild('profileActionsSwiper', { static: false }) profileActionsSwiper!: ElementRef;
   @ViewChild('profileInformationSwiperHeader', { static: false }) profileInformationSwiperHeader!: ElementRef;
   @ViewChild('profileInformationSwiperBody', { static: false }) profileInformationSwiperBody!: ElementRef;
 
@@ -64,8 +65,30 @@ export class ProfilePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.startActionsSwiper();
     this.startInformationSwiperHeader();
     this.startInformationSwiperBody();
+  }
+
+  startActionsSwiper() {
+    const swiperParams: SwiperOptions = {
+      initialSlide: 0,
+      slidesPerView: 2,
+      /* freeMode: {
+        enabled: true,
+        sticky: true
+      }, */
+      spaceBetween: 20,
+      pagination: {
+        clickable: false,
+        bulletClass: `swiper-pagination-bullet ${'red-pls'}`,
+      },
+      centeredSlides: true,
+      centeredSlidesBounds: true
+    };
+
+    Object.assign(this.profileActionsSwiper.nativeElement, swiperParams);
+    this.profileActionsSwiper.nativeElement.initialize();
   }
 
   startInformationSwiperHeader() {

@@ -24,40 +24,6 @@ export class GameSessionPage implements OnInit {
 
   ngOnInit() {
     console.log('Cargan la sesión de juego');
-    // this.initializeSwiper();
-  }
-
-  initializeSwiper() {
-    // swiper element
-    const swiper = document.querySelector('swiper-container');
-
-    if (!swiper) {
-      return;
-    }
-
-    // swiper parameters
-    const swiperParams = {
-      slidesPerView: 1,
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-      on: {
-        init() {
-          console.log('Método ON - init');
-        },
-      }
-    };
-
-    // now we need to assign all parameters to Swiper element
-    Object.assign(swiper, swiperParams);
-
-    // and now initialize it
-    swiper.initialize();
   }
 
   navigateTournament() {

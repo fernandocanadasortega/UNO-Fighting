@@ -252,34 +252,44 @@ mat-card-content.favorite-card-container {
 
 
 
+/**
+ * BARRA DE ACCIONES DISPONIBLES
+ */
+.actions-carrousel-container {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 20px;
 
+  .card-carrousel {
+    display: flex;
+    overflow-x: auto;
 
-swiper-container.mySwiper {
-  width: 100%;
-  height: 100%;
-  margin: 10px 0px;
+    ::-webkit-scrollbar {
+      /* Eliminar barra de scroll para Safari and Chrome */
+      display: none;
+    }
 
-  swiper-slide {
-    // height: 150px;
-    // text-align: center;
-    // font-size: 18px;
-    // background: #fff;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // color: black;
+    -ms-overflow-style: none;
+    /* Eliminar barra de scroll para Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Eliminar barra de scroll para  Firefox */
   }
-}
 
-mat-card.manage-action {
-  margin: 0px;
-  margin-bottom: 10px;
+  mat-card {
+    margin: 0px;
+    margin-left: 20px;
+  }
+
+  mat-card:first-of-type {
+    margin-left: 0px;
+  }
 
   mat-card-content {
     display: flex;
     flex-flow: column;
-    width: 160px;
-    padding: 16px;
+    min-width: 150px;
+    max-width: 250px;
+    overflow: hidden;
 
     mat-icon {
       width: 30px;
@@ -298,96 +308,75 @@ mat-card.manage-action {
       font-size: 12px;
       margin-top: 10px;
       color: var(--ion-color-medium);
+      display: inline-block;
+      white-space: nowrap;
+      @extend .text-overflow;
     }
 
     .card-value {
       font-size: 16px;
       color: var(--ion-color-dark);
+      display: inline-block;
+      white-space: nowrap;
+      @extend .text-overflow;
     }
   }
 }
-
-.swiper-pagination {
-  bottom: 0px;
-}
-
-div.swiper-pagination .swiper-pagination-bullets .swiper-pagination-horizontal {
-  bottom: 0px;
-}
-
-:host ::ng-deep div.swiper-pagination {
-  bottom: 0px;
-}
-
-.red-pls {
-  width: 8px;
-  height: 8px;
-  opacity: 1;
-  background-color: red !important;
-}
-
-:host ::ng-deep div span.swiper-pagination-bullet-active {
-  background-color: green !important;
-  --swiper-pagination-color: green !important;
-}
-
-
-
 
 
 
 /*
  * TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL
  */
-#background mat-card mat-card-content.table-container {
+#background mat-card mat-card-content.profile-table-container {
   padding: 12px;
   padding-top: 10px;
 }
 
-// Modifica el aspecto visual del mat-tab
-:host ::ng-deep .mat-mdc-tab-label-container {
-  border-radius: 10px;
-}
-
-:host ::ng-deep .mat-mdc-tab-list {
+// Configura los estilos del swiper
+swiper-container.profile-information.swiper-header {
   padding: 3px;
   border-radius: 10px;
   background-color: var(--ion-background-color, #fff);
-}
 
-:host ::ng-deep .mdc-tab.mdc-tab {
-  height: 33px;
-  border-radius: 10px;
-  background-color: var(--ion-background-color, #fff);
-}
+  swiper-slide {
+    height: 35px;
+    border-radius: 10px;
 
-:host ::ng-deep .mdc-tab.mdc-tab--active {
-  background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
-}
+    div.swiper-header-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 7px;
 
-:host ::ng-deep .mdc-tab__text-label {
-  color: var(--ion-color-medium) !important;
-}
+      mat-label {
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
 
-:host ::ng-deep .mdc-tab-indicator__content {
-  border: 0px;
+  // Al slider que tiene la cabecera activa se activa el color gris, indicando que está seleccionado
+  .show-active-slide {
+    border-radius: 10px;
+    background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+  }
 }
-
-// Elimina el color del ripple al seleccionar una pestaña
-:host ::ng-deep .mdc-tab__ripple {
-  --mat-tab-header-active-ripple-color: transparent;
-}
-
 
 // Modela la tabla con las estadísticas e información personal
-.table-container .table {
+.profile-table-container .table {
   display: flex;
   flex-flow: column;
   margin: 12px 8px;
 }
 
 // Tablas con estadísticas (General y Estadísticas)
-.table-container .table .stat {
+.profile-table-container .table .stat {
   display: flex;
   align-items: center;
   margin-top: 12px;
@@ -426,8 +415,8 @@ div.swiper-pagination .swiper-pagination-bullets .swiper-pagination-horizontal {
   }
 }
 
-// Modificación para la tabla de Estadísticas
-.table-container .table.performance-table-tab .stat {
+// Modificación para la tabla de Estadísticas (Alinear los números a la derecha y hacer que el texto en mayusculas pueda ocupar más espacio)
+.profile-table-container .table.performance-table-tab .stat {
   .stat-header {
     min-width: 50%;
     flex: 0 1 50%;
@@ -440,31 +429,51 @@ div.swiper-pagination .swiper-pagination-bullets .swiper-pagination-horizontal {
   }
 }
 
-// Modificación para la tabla de Social
-.table-container .table.social-table-tab {
-  margin-bottom: 2px;
-}
-
-.table-container .table.social-table-tab .friend {
+// Tabla con listado de amigos (Social)
+.profile-table-container .table.social-table-tab .friend {
   display: flex;
-  margin-top: 3px;
+  margin-top: 20px;
   padding: 10px 7px;
   align-items: center;
 
-  .friend-name {
-    flex: 1 1 auto;
-    margin-top: 5px;
-    @extend .text-overflow;
+  img {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 20px;
+  }
 
+  .friend-left-stats {
+    display: flex;
+    flex-flow: column;
+    margin-top: 4px;
+    overflow: hidden;
+
+    // Label inferior (Color gris)
     mat-label {
-      font-size: 18px;
-      color: var(--ion-color-dark);
+      font-size: 14px;
+      color: var(--ion-color-medium);
       @extend .text-overflow;
     }
   }
 
-  .friend-stat {
-    margin-left: 15px;
+  // Label superior (Color blanco)
+  .friend-left-stats mat-label:first-child {
+    font-size: 18px;
+    color: var(--ion-color-dark);
+    margin-bottom: 5px;
+  }
+
+  .friend-right-stats {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    margin-right: 2px;
+  }
+
+  // Icono inferior (Color gris)
+  .friend-right-stats>div {
     display: flex;
     align-items: center;
     color: var(--ion-color-medium);
@@ -480,44 +489,15 @@ div.swiper-pagination .swiper-pagination-bullets .swiper-pagination-horizontal {
       margin-top: 2px;
     }
   }
+
+  // Icono superior (Color blanco)
+  .friend-right-stats>div:first-child {
+    margin-bottom: 5px;
+    color: var(--ion-color-dark);
+  }
 }
 
-.table-container .table .friend:first-of-type {
-  margin-top: 0px;
-}
-
-
-
-
-swiper-container.profile-information.swiper-header {
-  padding: 3px;
-  border-radius: 10px;
-  background-color: var(--ion-background-color, #fff);
-
-  swiper-slide {
-    height: 35px;
-    border-radius: 10px;
-
-    div.swiper-header-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0px 7px;
-
-      mat-label {
-        font-family: Roboto, sans-serif;
-        font-size: 14px;
-        letter-spacing: 0.05em;
-        font-weight: 500;
-        color: var(--ion-color-medium);
-      }
-    }
-  }
-
-  // Al slider que tiene la cabecera activa se activa el color gris, indicando que está seleccionado
-  .show-active-slide {
-    background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
-  }
+// El primer objeto de amigo tiene menos margen superior
+.profile-table-container .table .friend:first-of-type {
+  margin-top: 10px;
 }

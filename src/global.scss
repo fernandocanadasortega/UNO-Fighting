@@ -29,28 +29,3 @@
 /* Controla el tema claro-oscuro para angular material */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css' only screen and (prefers-color-scheme: light);
 @import '@angular/material/prebuilt-themes/purple-green.css' only screen and (prefers-color-scheme: dark);
-
-
-.red-pls {
-  width: 8px;
-  height: 8px;
-  opacity: 1;
-  background-color: red !important;
-}
-
-:root {
-  // --swiper-pagination-color: red;
-  --swiper-pagination-bullet-width: 15px;
-  --swiper-pagination-bullet-height: 4px;
-  --swiper-pagination-bullet-border-radius: 5px;
-  // --swiper-pagination-bullet-inactive-color: #000;
-  // --swiper-pagination-bullet-inactive-opacity: 0.2;
-  // --swiper-pagination-bullet-opacity: 1;
-  // --swiper-pagination-bullet-horizontal-gap: 4px;
-  // --swiper-pagination-bullet-vertical-gap: 6px;
-}
-
-:root ::ng-deep div span.swiper-pagination-bullet-active {
-  background-color: green !important;
-  --swiper-pagination-color: green !important;
-}

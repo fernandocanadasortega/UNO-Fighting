@@ -30,6 +30,7 @@
       </div>
     </div>
 
+
     <!-- ESTADÍSTICAS DESTACADAS -->
     <div id="highlighted-stats">
       <div class="stat" matTooltip="Partidas ganadas">
@@ -57,6 +58,7 @@
       </div>
     </div>
 
+
     <!-- CARTA FAVORITA -->
     <mat-card>
       <mat-card-content class="favorite-card-container">
@@ -79,26 +81,51 @@
     </mat-card>
 
 
-    <div class="slider-prueba-wrapper">
-      <swiper-container #profileActionsSwiper class="mySwiper">
-        <swiper-slide *ngFor="let item of [0,0,0,0,0,0,0]">
-          <mat-card class="manage-action">
-            <mat-card-content matRipple>
-              <mat-icon>edit_note</mat-icon>
-              <mat-label class="card-header">Cambiar parámetros</mat-label>
-              <mat-label class="card-value">Ajustes</mat-label>
-            </mat-card-content>
-          </mat-card>
-        </swiper-slide>
-      </swiper-container>
+    <!-- BARRA DE ACCIONES DISPONIBLES -->
+    <div class="actions-carrousel-container">
+      <div class="card-carrousel">
+        <!-- EDITAR DATOS DE SESIÓN -->
+        <mat-card>
+          <mat-card-content matRipple>
+            <mat-icon>edit_note</mat-icon>
+            <mat-label class="card-header">Cambiar parámetros</mat-label>
+            <mat-label class="card-value">Ajustes</mat-label>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- FINALIZAR SESIÓN Y GUARDAR -->
+        <mat-card>
+          <mat-card-content matRipple>
+            <mat-icon>logout</mat-icon>
+            <mat-label class="card-header">Finalizar y guardar de verdad de la buena</mat-label>
+            <mat-label class="card-value">Finalizar sesión</mat-label>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- FINALIZAR SESIÓN Y GUARDAR -->
+        <mat-card>
+          <mat-card-content matRipple>
+            <mat-icon>logout</mat-icon>
+            <mat-label class="card-header">Finalizar y guardar</mat-label>
+            <mat-label class="card-value">Finalizar sesión te lo aseguro por dios</mat-label>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- FINALIZAR SESIÓN Y GUARDAR -->
+        <mat-card>
+          <mat-card-content matRipple>
+            <mat-icon>logout</mat-icon>
+            <mat-label class="card-header">Finalizar y guardar</mat-label>
+            <mat-label class="card-value">Finalizar sesión</mat-label>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
-
-
 
 
     <!-- TABLA DE ESTADÍSTICAS E INFORMACIÓN PERSONAL -->
     <mat-card>
-      <mat-card-content class="table-container">
+      <mat-card-content class="profile-table-container">
         <!-- init="false" impide que el componente se carge hasta que se llame a la clase initialize() -->
         <swiper-container #profileInformationSwiperHeader class="profile-information swiper-header">
           <swiper-slide>
@@ -187,20 +214,24 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <!-- TODO - FALTA MODIFICAR VISUALMENTE PARA QUE SE PAREZCA A TABLA DE WINRATE -->
             <!-- todo - solo visible en tu perfil, no si miras perfil ajeno -->
             <div class="table social-table-tab">
               <div matRipple class="friend" *ngFor="let entry of [0, 0, 0, 0, 0, 0]">
-                <div class="friend-name">
-                  <mat-label>Gorpax</mat-label>
+                <img src="assets/images/profile.jpg" alt="profile">
+                <div class="friend-left-stats">
+                  <mat-label>Playa</mat-label>
+                  <mat-label>55 partidas jugadas</mat-label>
                 </div>
-                <div class="friend-stat">
-                  <mat-icon>percent</mat-icon>
-                  <mat-label>52,7</mat-label>
-                </div>
-                <div class="friend-stat">
-                  <mat-icon>emoji_events</mat-icon>
-                  <mat-label>25</mat-label>
+                <span class="separator"></span>
+                <div class="friend-right-stats">
+                  <div>
+                    <mat-icon>percent</mat-icon>
+                    <mat-label>52,7</mat-label>
+                  </div>
+                  <div>
+                    <mat-icon>emoji_events</mat-icon>
+                    <mat-label>25</mat-label>
+                  </div>
                 </div>
               </div>
             </div>

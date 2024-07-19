@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -22,10 +22,13 @@ export enum InformationSwiperHeaderType {
   imports: [IonicModule, CommonModule, FormsModule, TranslateModule, MaterialComponentsModule, HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ProfilePage implements OnInit, AfterViewInit {
+export class ProfilePage implements AfterViewInit {
 
   @ViewChild('profileInformationSwiperHeader', { static: false }) profileInformationSwiperHeader!: ElementRef;
   @ViewChild('profileInformationSwiperBody', { static: false }) profileInformationSwiperBody!: ElementRef;
+
+  public activeInformationSwiperHeader: number = InformationSwiperHeaderType.OVERVIEW;
+  public informationSwiperHeaderType = InformationSwiperHeaderType;
 
   public profileImageButtons: any[] = [
     {
@@ -52,16 +55,9 @@ export class ProfilePage implements OnInit, AfterViewInit {
     }
   ];
 
-  public activeInformationSwiperHeader: number = InformationSwiperHeaderType.OVERVIEW;
-  public informationSwiperHeaderType = InformationSwiperHeaderType;
-
   constructor(
     private utils: UtilsService
   ) { }
-
-  ngOnInit() {
-
-  }
 
   ngAfterViewInit(): void {
     this.startInformationSwiperHeader();

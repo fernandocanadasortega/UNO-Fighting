@@ -17,6 +17,7 @@
         </div>
       </div>
 
+
       <!-- DETALLES DE LA SESIÓN -->
       <div class="subheader">
         <mat-icon>calendar_month</mat-icon>
@@ -25,6 +26,7 @@
         <mat-label>28</mat-label>
         <mat-icon>emoji_events</mat-icon>
       </div>
+
 
       <!-- PODIO 3 MEJORES JUGADORES DE LA SESIÓN -->
       <div id="leaderboard">
@@ -47,6 +49,7 @@
           <mat-label class="user-victories">32 victorias</mat-label>
         </div>
       </div>
+
 
       <!-- AÑADIR PARTIDA -->
       <mat-card class="add-game-container">
@@ -74,16 +77,13 @@
         </mat-card-content>
       </mat-card>
 
-      <!-- ADMINISTRAR SESIÓN -->
-      <div class="card-carrousel-container manage-session">
-        <div class="header">
-          <mat-label>Administrar sesión</mat-label>
-        </div>
 
+      <!-- BARRA DE ACCIONES DISPONIBLES -->
+      <div class="actions-carrousel-container">
         <div class="card-carrousel">
           <!-- EDITAR DATOS DE SESIÓN -->
-          <mat-card class="manage-action">
-            <mat-card-content matRipple (click)="manageSession()">
+          <mat-card>
+            <mat-card-content matRipple>
               <mat-icon>edit_note</mat-icon>
               <mat-label class="card-header">Cambiar parámetros</mat-label>
               <mat-label class="card-value">Ajustes</mat-label>
@@ -91,64 +91,110 @@
           </mat-card>
 
           <!-- FINALIZAR SESIÓN Y GUARDAR -->
-          <mat-card class="manage-action">
-            <mat-card-content matRipple (click)="endSession()">
+          <mat-card>
+            <mat-card-content matRipple>
+              <mat-icon>logout</mat-icon>
+              <mat-label class="card-header">Finalizar y guardar de verdad de la buena</mat-label>
+              <mat-label class="card-value">Finalizar sesión</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN Y GUARDAR -->
+          <mat-card>
+            <mat-card-content matRipple>
+              <mat-icon>logout</mat-icon>
+              <mat-label class="card-header">Finalizar y guardar</mat-label>
+              <mat-label class="card-value">Finalizar sesión te lo aseguro por dios</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN Y GUARDAR -->
+          <mat-card>
+            <mat-card-content matRipple>
               <mat-icon>logout</mat-icon>
               <mat-label class="card-header">Finalizar y guardar</mat-label>
               <mat-label class="card-value">Finalizar sesión</mat-label>
             </mat-card-content>
           </mat-card>
-
-          <!-- FINALIZAR SESIÓN SIN GUARDAR -->
-          <mat-card class="manage-action danger">
-            <mat-card-content matRipple (click)="endSession()">
-              <mat-icon>logout</mat-icon>
-              <mat-label class="card-header">Finalizar sin guardar</mat-label>
-              <mat-label class="card-value">Eliminar sesión</mat-label>
-            </mat-card-content>
-          </mat-card>
         </div>
       </div>
 
 
+      <!-- TABLAS DE HISTORIAL DE PARTIDAS -->
+      <mat-card>
+        <mat-card-content class="match-history-container">
+          <!-- init="false" impide que el componente se carge hasta que se llame a la clase initialize() -->
+          <swiper-container #matchHistorySwiperHeader class="match-history swiper-header">
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="false">
+                <mat-label>1ª partida</mat-label>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="true">
+                <mat-label>2ª partida</mat-label>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="false">
+                <mat-label>3ª partida</mat-label>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="false">
+                <mat-label>4ª partida</mat-label>
+              </div>
+            </swiper-slide>
+          </swiper-container>
 
-      <!-- HISTORIAL DE PARTIDAS DE LA SESIÓN -->
-      <div class="session-match-history">
-        <!-- ADMINISTRAR SESIÓN -->
-        <div class="card-carrousel-container" *ngFor="let matchResult of [0,0,0,0]">
-          <div class="header">
-            <mat-label>Partida 1</mat-label>
-            <span class="separator"></span>
-            <button class="edit" mat-button (click)="manageGameMatch(matchResult)">Editar</button>
-          </div>
+          <swiper-container #matchHistorySwiperBody class="match-history swiper-body"
+            thumbs-swiper=".match-history.swiper-header">
+            <swiper-slide *ngFor="let item of [0,0,0,0]">
+              <div class="match-history-table">
+                <div matRipple class="match-history-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="user-image">
+                  <div class="user-match-result">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>1ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/first-place-medal.png" alt="profile" class="match-result-image">
+                </div>
 
-          <div class="card-carrousel">
-            <mat-card class="game-match-result">
-              <mat-card-content>
-                <img src="assets/images/first-place-medal.png" class="medal">
-                <mat-label class="card-header">Primer puesto</mat-label>
-                <mat-label class="card-value">Gorpax</mat-label>
-              </mat-card-content>
-            </mat-card>
+                <div matRipple class="match-history-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="user-image">
+                  <div class="user-match-result">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>2ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/second-place-medal.png" alt="profile" class="match-result-image">
+                </div>
 
-            <mat-card class="game-match-result">
-              <mat-card-content>
-                <img src="assets/images/second-place-medal.png" class="medal">
-                <mat-label class="card-header">Segundo puesto</mat-label>
-                <mat-label class="card-value">Gorpax</mat-label>
-              </mat-card-content>
-            </mat-card>
+                <div matRipple class="match-history-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="user-image">
+                  <div class="user-match-result">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>3ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/third-place-medal.png" alt="profile" class="match-result-image">
+                </div>
 
-            <mat-card class="game-match-result">
-              <mat-card-content>
-                <img src="assets/images/third-place-medal.png" class="medal">
-                <mat-label class="card-header">Tercer puesto</mat-label>
-                <mat-label class="card-value">Gorpax</mat-label>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </div>
-      </div>
+                <div matRipple class="match-history-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="user-image">
+                  <div class="user-match-result">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>4ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/last-place-medal.svg" alt="profile" class="match-result-image">
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper-container>
+        </mat-card-content>
+      </mat-card>
     </div>
   </ion-content>
 </div>

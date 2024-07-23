@@ -7,19 +7,46 @@
   overflow-y: auto;
 }
 
-ion-col {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 23px;
+.swiper-background {
+  display: flex;
+  flex-flow: column;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 
-.card-container {
+.swiper-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  span {
+    flex: 1 1 auto;
+    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.6);
+  }
+
+  mat-label {
+    font-size: 18px;
+    margin: 0px 12px;
+  }
+}
+
+swiper-container {
   width: 100%;
-  height: 100%;
+}
+
+swiper-slide {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 5px 0px;
+  background-position: center;
+  background-size: cover;
+  width: 200px !important;
+  opacity: 0;
+}
+
+.swiper-slide-active,
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 1;
 }
 
 .image-container {
@@ -28,31 +55,34 @@ ion-col {
   align-items: center;
   position: relative;
 
+  min-width: 150px;
+  width: 160px;
+  height: 260px;
+
   img {
-    min-width: 120px;
-    width: 130px;
-    height: 230px;
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
   }
-}
 
-.card-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  border-radius: 10px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  height: 22%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
+  .card-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 22%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
 
-  mat-label {
-    font-size: 15px;
-    color: #f4f5f8; // ion-color-dark (Como el overlay siempre es oscuro, el texto siempre tiene que ser claro, incluso en el tema claro)
-    font-weight: bold;
+    mat-label {
+      font-size: 15px;
+      color: #f4f5f8; // ion-color-dark (Como el overlay siempre es oscuro, el texto siempre tiene que ser claro, incluso en el tema claro)
+      font-weight: bold;
+    }
   }
 }

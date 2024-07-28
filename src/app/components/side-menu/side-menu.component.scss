@@ -94,6 +94,12 @@
       font-size: 16px;
     }
   }
+
+  .item>img {
+    width: 24px;
+    height: 24px;
+    filter: invert(81%) sepia(26%) saturate(731%) hue-rotate(93deg) brightness(99%) contrast(93%);
+  }
 }
 
 .menu-actions.menu-separator {

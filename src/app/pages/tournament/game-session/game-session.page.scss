@@ -39,94 +39,50 @@
 }
 
 
-#background>.subheader {
-  display: flex;
-  align-items: center;
-  color: var(--ion-color-medium);
-  margin-top: 10px;
-  margin-bottom: 5px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
 
-  mat-icon {
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    margin: 0px 8px;
-  }
-
-  mat-label {
-    margin-top: 2px;
-    font-size: 15px;
-  }
-}
-
-
-
-/**
- * PODIO 3 MEJORES JUGADORES DE LA SESIÓN
- */
-#leaderboard {
+.prueba {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 20px;
 
-  .item {
+  .prueba-item {
+    min-width: 100px;
+    max-width: 140px;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    padding: 7px 14px;
+    padding-top: 10px;
+    border: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+    border-radius: 6px;
+    margin: 0px 12px;
 
-    img.medal {
-      min-width: 45px;
-      width: 45px;
-      height: 45px;
+    mat-icon {
+      color: var(--ion-color-medium);
       margin-bottom: 6px;
     }
 
-    img.user-image {
-      min-width: 70px;
-      width: 70px;
-      height: 70px;
-      border-radius: 100%;
-    }
-
-    .username {
-      font-size: 19px;
-      font-weight: bold;
+    mat-label {
+      width: 100%;
       text-align: center;
-      margin-top: 15px;
-      color: var(--ion-color-dark);
+      @extend .text-overflow;
     }
 
-    .user-victories {
-      font-size: 12px;
-      margin-top: 3px;
+    mat-label.header {
       color: var(--ion-color-medium);
+      font-size: 12px;
+    }
+
+    mat-label:not(.header) {
+      color: var(--ion-color-dark);
     }
   }
 
-  .item.first-place {
-    margin: 0px 45px;
-
-    img.medal {
-      min-width: 50px;
-      width: 50px;
-      height: 50px;
-    }
-
-    img.user-image {
-      min-width: 85px;
-      width: 85px;
-      height: 85px;
-    }
-
-    .username {
-      font-size: 22px;
-    }
-
-    .user-victories {
-      font-size: 14px;
+  .prueba-item.number-item {
+    mat-label:not(.header) {
+      font-size: 16px;
     }
   }
 }
@@ -157,25 +113,9 @@ mat-card.add-game-container {
           position: relative;
           background-color: var(--ion-color-dark);
           border-radius: 100%;
-          padding: 3px 5px 2px 5px;
+          padding: 5px;
+          padding-bottom: 0px;
           margin-bottom: 12px;
-
-          .mini-icon {
-            position: absolute;
-            height: 24px;
-            right: -3px;
-            bottom: 1px;
-            padding: 4px;
-            border-radius: 100%;
-            background-color: var(--ion-color-dark);
-
-            mat-icon {
-              width: 16px;
-              height: 16px;
-              font-size: 16px;
-              color: var(--ion-card-background);
-            }
-          }
         }
 
         .icon-container>mat-icon {
@@ -237,85 +177,22 @@ mat-card.add-game-container {
 /**
  * BARRA DE ACCIONES DISPONIBLES
  */
-.actions-carrousel-container {
-  display: flex;
-  margin: 50px 0px;
-
-  .card-carrousel {
-    display: flex;
-    overflow-x: auto;
-
-    ::-webkit-scrollbar {
-      /* Eliminar barra de scroll para Safari and Chrome */
-      display: none;
-    }
-
-    -ms-overflow-style: none;
-    /* Eliminar barra de scroll para Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Eliminar barra de scroll para  Firefox */
-  }
-
-  mat-card {
-    margin: 0px;
-    margin-left: 20px;
-  }
-
-  mat-card:first-of-type {
-    margin-left: 0px;
-  }
-
-  mat-card-content {
-    display: flex;
-    flex-flow: column;
-    min-width: 150px;
-    max-width: 250px;
-    overflow: hidden;
-
-    mat-icon {
-      width: 30px;
-      height: 30px;
-      font-size: 30px;
-      color: var(--ion-color-primary);
-    }
-
-    img {
-      min-width: 45px;
-      width: 45px;
-      height: 45px;
-    }
-
-    .card-header {
-      font-size: 12px;
-      margin-top: 10px;
-      color: var(--ion-color-medium);
-      display: inline-block;
-      white-space: nowrap;
-      @extend .text-overflow;
-    }
-
-    .card-value {
-      font-size: 16px;
-      color: var(--ion-color-dark);
-      display: inline-block;
-      white-space: nowrap;
-      @extend .text-overflow;
-    }
-  }
+.session-actions {
+  margin: 45px 0px;
 }
 
 
 
 /*
- * TABLAS DE HISTORIAL DE PARTIDAS
+ * TABLAS SWIPER CON UNA CABECERA
  */
-#background mat-card mat-card-content.match-history-container {
+#background mat-card mat-card-content.swiper-table-with-header-container {
   padding: 12px;
   padding-top: 10px;
 }
 
 // Configura los estilos del swiper
-swiper-container.match-history.swiper-header {
+swiper-container.swiper-table-with-header.swiper-header {
   padding: 3px;
   border-radius: 10px;
   background-color: var(--ion-background-color, #fff);
@@ -349,14 +226,15 @@ swiper-container.match-history.swiper-header {
   }
 }
 
-// Modela la tabla con el historial de partidas
-.match-history-container .match-history-table {
+// Modela la tabla con información de los participantes de la sesión
+.user-information-table {
   display: flex;
   flex-flow: column;
   margin: 12px 8px;
+  margin-bottom: 0px;
 }
 
-.match-history-container .match-history-table .match-history-item {
+.user-information-table .table-item {
   display: flex;
   margin-top: 10px;
   padding: 10px 7px;
@@ -369,15 +247,15 @@ swiper-container.match-history.swiper-header {
     border-radius: 100%;
   }
 
-  img.user-image {
+  img.left-image {
     margin-right: 20px;
   }
 
-  img.match-result-image {
+  img.right-image {
     margin-left: 20px;
   }
 
-  .user-match-result {
+  .table-item-description {
     display: flex;
     flex-flow: column;
     margin-top: 4px;
@@ -392,9 +270,21 @@ swiper-container.match-history.swiper-header {
   }
 
   // Label superior (Color blanco)
-  .user-match-result mat-label:first-child {
+  .table-item-description mat-label:first-child {
     font-size: 18px;
     color: var(--ion-color-dark);
     margin-bottom: 5px;
   }
+}
+
+.user-information-table .table-actions {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+}
+
+
+// TABLA SWIPER CON LOS 3 MEJORES JUGADORES (PODIO)
+.leaderboard-container {
+  margin-bottom: 45px;
 }

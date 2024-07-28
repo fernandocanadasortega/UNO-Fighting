@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, ElementRef, ViewChild, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
@@ -18,6 +18,9 @@ import { SwiperOptions } from 'swiper/types';
 })
 export class GameSessionPage implements AfterViewInit {
 
+  @ViewChild('leaderboardSwiperHeader', { static: false }) leaderboardSwiperHeader!: ElementRef;
+  @ViewChild('leaderboardSwiperBody', { static: false }) leaderboardSwiperBody!: ElementRef;
+
   @ViewChild('matchHistorySwiperHeader', { static: false }) matchHistorySwiperHeader!: ElementRef;
   @ViewChild('matchHistorySwiperBody', { static: false }) matchHistorySwiperBody!: ElementRef;
 
@@ -29,27 +32,30 @@ export class GameSessionPage implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    this.startInformationSwiperHeader();
-    this.startInformationSwiperBody();
+    this.startInformationSwiperHeader(this.leaderboardSwiperHeader, 2);
+    this.startInformationSwiperBody(this.leaderboardSwiperBody);
+
+    this.startInformationSwiperHeader(this.matchHistorySwiperHeader);
+    this.startInformationSwiperBody(this.matchHistorySwiperBody);
   }
 
-  startInformationSwiperHeader() {
+  startInformationSwiperHeader(swiper: ElementRef, slidesPerView: number = 3) {
     const swiperParams: SwiperOptions = {
       initialSlide: 0,
       slidesPerView: 2,
       watchSlidesProgress: true,
       breakpoints: {
         412: { // Pantallas de Android promedio 421px (En todos los dispositivos con >= 412px se muestras 3 cabeceras)
-          slidesPerView: 3
+          slidesPerView: slidesPerView
         }
       }
     };
 
-    Object.assign(this.matchHistorySwiperHeader.nativeElement, swiperParams);
-    this.matchHistorySwiperHeader.nativeElement.initialize();
+    Object.assign(swiper.nativeElement, swiperParams);
+    swiper.nativeElement.initialize();
   }
 
-  startInformationSwiperBody() {
+  startInformationSwiperBody(swiper: ElementRef) {
     const swiperParams: SwiperOptions = {
       initialSlide: 0,
       slidesPerView: 1,
@@ -66,8 +72,8 @@ export class GameSessionPage implements AfterViewInit {
       }
     };
 
-    Object.assign(this.matchHistorySwiperBody.nativeElement, swiperParams);
-    this.matchHistorySwiperBody.nativeElement.initialize();
+    Object.assign(swiper.nativeElement, swiperParams);
+    swiper.nativeElement.initialize();
   }
 
   navigateTournament() {

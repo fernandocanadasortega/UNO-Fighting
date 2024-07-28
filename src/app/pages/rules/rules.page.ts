@@ -17,7 +17,6 @@ import { SwiperOptions } from 'swiper/types';
 })
 export class RulesPage implements OnInit, AfterViewInit {
 
-  @ViewChild('cardSwiper', { static: false }) cardSwiper!: ElementRef;
   @ViewChildren('cardSwiper') cardSwipers!: QueryList<ElementRef>;
 
   constructor(private modalCtrl: ModalController) { }

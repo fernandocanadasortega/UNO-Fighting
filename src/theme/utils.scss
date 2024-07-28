@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0px;
 }
 
@@ -22,6 +23,104 @@ body {
   overflow: hidden;
 }
 
-mat-card, mat-expansion-panel {
+
+// PONER LOS MAT-CARD DE COLOR ION-CARD-BACKGROUND (Es más bonito que el mat-card-background)
+mat-card:not(.no-color),
+mat-expansion-panel:not(.no-color) {
   background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff))) !important;
+}
+
+// ESTA CLASE ELIMINA EL COLOR Y LA PROFUNDIDAD DE LOS MAT-CARD
+mat-card.no-color,
+mat-expansion-panel.no-color {
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+
+
+/**
+ * BARRA DE ACCIONES DISPONIBLES
+ */
+.actions-carrousel-container {
+  display: flex;
+
+  .card-carrousel {
+    display: flex;
+  }
+
+  // El carrusel de acciones disponibles puede hacer scroll
+  .card-carrousel.scroll-carrousel {
+    overflow-x: auto;
+
+    ::-webkit-scrollbar {
+      /* Eliminar barra de scroll para Safari and Chrome */
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    /* Eliminar barra de scroll para Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Eliminar barra de scroll para  Firefox */
+  }
+
+    // El carrusel de acciones disponibles NO puede hacer scroll (Porque tiene pocos elementos, los elementos se alinean al centro)
+  .card-carrousel:not(.scroll-carrousel) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  mat-card {
+    margin: 0px;
+    margin-left: 20px;
+  }
+
+  mat-card:first-of-type {
+    margin-left: 0px;
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-width: 120px;
+    padding: 12px 14px;
+
+    mat-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: var(--ion-color-primary);
+    }
+
+    mat-icon.small-icon {
+      margin-bottom: 12px;
+      width: 26px;
+      height: 26px;
+      font-size: 26px;
+    }
+
+    img {
+      min-width: 45px;
+      width: 45px;
+      height: 45px;
+      margin-bottom: 8px;
+    }
+
+    img.small-icon {
+      min-width: 41px;
+      width: 41px;
+      height: 41px;
+      margin-bottom: 12px;
+    }
+
+    mat-label {
+      font-size: 16px;
+      color: var(--ion-color-dark);
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
 }

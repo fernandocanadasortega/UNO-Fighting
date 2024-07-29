@@ -6,10 +6,215 @@
     </ion-refresher>
 
     <div id="background">
-      <header [headerMessage]="'Torneo verano 2024'" [subheaderMessage]="'Creado el 24 de mayo 2024'" [tooltipMessage]="'Torneo verano 2024'"></header>
+      <header [headerMessage]="'Torneo verano 2024'" [subheaderMessage]="'Creado el 24 de mayo 2024'"
+        [tooltipMessage]="'Torneo verano 2024'"></header>
       <!-- <create-search-tournament></create-search-tournament> -->
 
-      <!-- Mostrar una descripción con la de youtube (Ejemplo en exalidraw) -->
+      <!-- DESCRIPCIÓN DEL TORNEO -->
+      <mat-card>
+        <mat-card-content class="description-card" [class.no-toggle-description]="!activeDescriptionToggle">
+          <div>
+            <div id="description-container">
+              <mat-label id="description-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                sagittis porttitor est eget iaculis. Integer posuere purus vitae velit scelerisque</mat-label>
+            </div>
+
+            <div matRipple class="show-more" (click)="toggleDescription()" *ngIf="activeDescriptionToggle">
+              <mat-label>
+                {{ (this.currentDescriptionHeight == this.smallDescriptionHeight) ? 'Mostrar más' : 'Mostrar menos' }}
+              </mat-label>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+
+      <!-- INFORMACIÓN ADICIONAL DEL TORNEO -->
+      <mat-chip-set>
+        <mat-chip matTooltip="Ubicación">
+          <div class="chip-container">
+            <mat-icon>location_on</mat-icon>
+            <mat-label>Piscina de Caña</mat-label>
+          </div>
+        </mat-chip>
+        <mat-chip matTooltip="Número de sesiones">
+          <div class="chip-container">
+            <img src="assets/images/swords-cross-small.svg">
+            <mat-label>28</mat-label>
+          </div>
+        </mat-chip>
+        <mat-chip matTooltip="Número de jugadores">
+          <div class="chip-container">
+            <mat-icon>person</mat-icon>
+            <mat-label>10</mat-label>
+          </div>
+        </mat-chip>
+      </mat-chip-set>
+
+
+      <!-- INICIAR SESIÓN -->
+      <mat-card class="add-game-container">
+        <mat-card-content>
+          <div class="add-game" matRipple>
+            <div class="add-game-icon-display">
+              <div class="icon-container">
+                <img src="assets/images/swords-cross-small.svg">
+              </div>
+              <mat-label>Ubicación seleccionada</mat-label>
+            </div>
+            <div class="add-game-information">
+              <mat-label class="header">Nueva sesión</mat-label>
+              <mat-label class="subheader">Solo se registran los jugadores en las tres primeras posiciones, por debajo
+                de estas se registra como partida perdida.</mat-label>
+            </div>
+          </div>
+          <div class="new-game" matRipple>
+            <mat-icon>add</mat-icon>
+            <mat-label>Iniciar sesión</mat-label>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+
+      <!-- BARRA DE ACCIONES DISPONIBLES -->
+      <div class="actions-carrousel-container session-actions">
+        <div class="card-carrousel scroll-carrousel">
+          <!-- EDITAR DATOS DE SESIÓN -->
+          <mat-card>
+            <mat-card-content matRipple>
+              <mat-icon>edit_note</mat-icon>
+              <mat-label>Ajustes</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN Y GUARDAR -->
+          <mat-card>
+            <mat-card-content matRipple>
+              <mat-icon class="small-icon">logout</mat-icon>
+              <mat-label>Finalizar sesión</mat-label>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- FINALIZAR SESIÓN Y GUARDAR -->
+          <mat-card>
+            <mat-card-content matRipple>
+              <mat-icon class="small-icon">logout</mat-icon>
+              <mat-label>Finalizar sesión te lo aseguro por dios</mat-label>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+
+      <!-- TABLA CON LOS 3 MEJORES JUGADORES (PODIO) -->
+      <mat-card class="leaderboard-container">
+        <mat-card-content class="swiper-table-with-header-container">
+          <swiper-container #leaderboardSwiperHeader
+            class="swiper-table-with-header swiper-header leaderboard-header-swiper">
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="false">
+                <mat-label>Top 3</mat-label>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="swiper-header-container" [class.show-active-slide]="true">
+                <mat-label>Top 5</mat-label>
+              </div>
+            </swiper-slide>
+          </swiper-container>
+
+          <swiper-container #leaderboardSwiperBody class="swiper-table-with-header swiper-body"
+            thumbs-swiper=".leaderboard-header-swiper">
+            <swiper-slide>
+              <div class="user-information-table">
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>1ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/first-place-medal.png" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>2ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/second-place-medal.png" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>3ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/third-place-medal.png" alt="profile" class="right-image">
+                </div>
+              </div>
+            </swiper-slide>
+
+            <swiper-slide>
+              <div class="user-information-table">
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>1ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/first-place-medal.png" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>2ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/second-place-medal.png" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>3ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/third-place-medal.png" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>4ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/last-place-medal.svg" alt="profile" class="right-image">
+                </div>
+
+                <div matRipple class="table-item">
+                  <img src="assets/images/profile.jpg" alt="profile" class="left-image">
+                  <div class="table-item-description">
+                    <mat-label>Gorpax</mat-label>
+                    <mat-label>5ª posición</mat-label>
+                  </div>
+                  <span class="separator"></span>
+                  <img src="assets/images/last-place-medal.svg" alt="profile" class="right-image">
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper-container>
+        </mat-card-content>
+      </mat-card>
     </div>
   </ion-content>
 </div>

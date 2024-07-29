@@ -25,14 +25,15 @@ body {
 
 
 // PONER LOS MAT-CARD DE COLOR ION-CARD-BACKGROUND (Es más bonito que el mat-card-background)
+// TODO - en vez de poner una clase que altere el color, establecer un archivo que cambie los colores del tema de angular material
 mat-card:not(.no-color),
-mat-expansion-panel:not(.no-color) {
+mat-expansion-panel:not(.no-color),
+mat-chip:not(.no-color) {
   background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff))) !important;
 }
 
 // ESTA CLASE ELIMINA EL COLOR Y LA PROFUNDIDAD DE LOS MAT-CARD
-mat-card.no-color,
-mat-expansion-panel.no-color {
+mat-card.no-color {
   background-color: transparent !important;
   border: none;
   box-shadow: none;

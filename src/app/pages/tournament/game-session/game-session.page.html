@@ -18,19 +18,21 @@
       </div>
 
 
-      <div class="prueba">
-        <div class="prueba-item" matTooltip="Piscina de Caña">
-          <mat-icon>location_on</mat-icon>
-          <mat-label class="header">Ubicación</mat-label>
-          <mat-label>Piscina de Caña</mat-label>
-        </div>
-
-        <div class="prueba-item number-item">
-          <mat-icon>emoji_events</mat-icon>
-          <mat-label class="header">Nº partidas</mat-label>
-          <mat-label>28</mat-label>
-        </div>
-      </div>
+      <!-- INFORMACIÓN ADICIONAL DE LA SESIÓN -->
+      <mat-chip-set>
+        <mat-chip matTooltip="Ubicación">
+          <div class="chip-container">
+            <mat-icon>location_on</mat-icon>
+            <mat-label>Piscina de Caña</mat-label>
+          </div>
+        </mat-chip>
+        <mat-chip matTooltip="Número de partidas">
+          <div class="chip-container">
+            <mat-icon>emoji_events</mat-icon>
+            <mat-label>28</mat-label>
+          </div>
+        </mat-chip>
+      </mat-chip-set>
 
 
       <!-- AÑADIR PARTIDA -->
@@ -90,7 +92,8 @@
       <!-- TABLA CON LOS 3 MEJORES JUGADORES (PODIO) -->
       <mat-card class="leaderboard-container">
         <mat-card-content class="swiper-table-with-header-container">
-          <swiper-container #leaderboardSwiperHeader class="swiper-table-with-header swiper-header">
+          <swiper-container #leaderboardSwiperHeader
+            class="swiper-table-with-header swiper-header leaderboard-header-swiper">
             <swiper-slide>
               <div class="swiper-header-container" [class.show-active-slide]="false">
                 <mat-label>Top 3</mat-label>
@@ -104,7 +107,7 @@
           </swiper-container>
 
           <swiper-container #leaderboardSwiperBody class="swiper-table-with-header swiper-body"
-            thumbs-swiper=".swiper-table-with-header.swiper-header">
+            thumbs-swiper=".leaderboard-header-swiper">
             <swiper-slide>
               <div class="user-information-table">
                 <div matRipple class="table-item">
@@ -200,7 +203,8 @@
       <!-- TABLAS DE HISTORIAL DE PARTIDAS -->
       <mat-card>
         <mat-card-content class="swiper-table-with-header-container">
-          <swiper-container #matchHistorySwiperHeader class="swiper-table-with-header swiper-header">
+          <swiper-container #matchHistorySwiperHeader
+            class="swiper-table-with-header swiper-header match-history-header-swiper">
             <swiper-slide>
               <div class="swiper-header-container" [class.show-active-slide]="false">
                 <mat-label>1ª partida</mat-label>
@@ -224,7 +228,7 @@
           </swiper-container>
 
           <swiper-container #matchHistorySwiperBody class="swiper-table-with-header swiper-body"
-            thumbs-swiper=".swiper-table-with-header.swiper-header">
+            thumbs-swiper=".match-history-header-swiper">
             <swiper-slide *ngFor="let item of [0,0,0,0]">
               <div class="user-information-table">
                 <div matRipple class="table-item">

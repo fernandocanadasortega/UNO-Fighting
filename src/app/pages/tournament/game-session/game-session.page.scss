@@ -40,49 +40,32 @@
 
 
 
-.prueba {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+/**
+ * INFORMACIÓN ADICIONAL DE LA SESIÓN
+ */
+mat-chip-set {
+  margin-top: 12px;
 
-  .prueba-item {
-    min-width: 100px;
-    max-width: 140px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 7px 14px;
-    padding-top: 10px;
-    border: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
-    border-radius: 6px;
-    margin: 0px 12px;
+  mat-chip {
+    height: 40px;
+    padding: 0px 5px;
+    margin-right: 8px;
 
-    mat-icon {
-      color: var(--ion-color-medium);
-      margin-bottom: 6px;
-    }
+    .chip-container {
+      display: flex;
+      align-items: center;
 
-    mat-label {
-      width: 100%;
-      text-align: center;
-      @extend .text-overflow;
-    }
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: var(--ion-color-medium);
+        margin-right: 8px;
+      }
 
-    mat-label.header {
-      color: var(--ion-color-medium);
-      font-size: 12px;
-    }
-
-    mat-label:not(.header) {
-      color: var(--ion-color-dark);
-    }
-  }
-
-  .prueba-item.number-item {
-    mat-label:not(.header) {
-      font-size: 16px;
+      mat-label {
+        margin-top: 2px;
+      }
     }
   }
 }
@@ -107,6 +90,7 @@ mat-card.add-game-container {
         flex-flow: column;
         margin-right: 27px;
         align-items: center;
+        min-width: 80px;
 
         .icon-container {
           width: 60px;
@@ -123,6 +107,12 @@ mat-card.add-game-container {
           height: 50px;
           font-size: 50px;
           color: var(--ion-card-background);
+        }
+
+        .icon-container>img {
+          width: 50px;
+          object-fit: contain;
+          filter: invert(3%) sepia(17%) saturate(14%) hue-rotate(314deg) brightness(97%) contrast(81%);
         }
 
         mat-label {

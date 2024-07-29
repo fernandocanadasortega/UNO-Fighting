@@ -1,3 +1,5 @@
+@import '../../../theme/utils.scss';
+
 #ion-refresher-padding {
   width: 100%;
   height: 100%;
@@ -18,37 +20,278 @@ create-search-tournament {
 }
 
 
-#header {
-  display: flex;
-  align-items: center;
+
+/**
+ * DESCRIPCIÓN DEL TORNEO
+ */
+mat-card mat-card-content.description-card {
+  padding-bottom: 6px;
 }
 
-#header>mat-label {
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--ion-color-dark);
-  margin-left: 25px;
+mat-card mat-card-content.description-card.no-toggle-description {
+  padding-bottom: 16px;
+}
+
+mat-card mat-card-content.description-card>div {
+  display: flex;
+  flex-flow: column;
+
+  #description-container {
+    overflow: hidden;
+  }
+
+  .show-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px 0px;
+    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+
+    mat-label {
+      color: var(--ion-color-medium);
+    }
+  }
 }
 
 
-.subheader {
+
+/**
+ * INFORMACIÓN ADICIONAL DEL TORNEO
+ */
+mat-chip-set {
+  margin-top: 12px;
+
+  mat-chip {
+    height: 40px;
+    padding: 0px 5px;
+    margin-right: 8px;
+
+    .chip-container {
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: var(--ion-color-medium);
+        margin-right: 8px;
+      }
+
+      img {
+        width: 20px;
+        object-fit: contain;
+        margin-right: 10px;
+        filter: invert(70%) sepia(8%) saturate(243%) hue-rotate(191deg) brightness(87%) contrast(89%);
+      }
+
+      mat-label {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+
+
+/**
+ * INICIAR SESIÓN
+ */
+mat-card.add-game-container {
+  margin-top: 35px;
+
+  mat-card-content {
+    padding: 0px;
+
+    .add-game {
+      display: flex;
+      padding: 16px;
+
+      .add-game-icon-display {
+        display: flex;
+        flex-flow: column;
+        margin-right: 27px;
+        align-items: center;
+        min-width: 80px;
+
+        .icon-container {
+          width: 60px;
+          position: relative;
+          background-color: var(--ion-color-dark);
+          border-radius: 100%;
+          padding: 5px;
+          padding-bottom: 0px;
+          margin-bottom: 12px;
+        }
+
+        .icon-container>mat-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 50px;
+          color: var(--ion-card-background);
+        }
+
+        .icon-container>img {
+          width: 50px;
+          object-fit: contain;
+          filter: invert(3%) sepia(17%) saturate(14%) hue-rotate(314deg) brightness(97%) contrast(81%);
+        }
+
+        mat-label {
+          font-size: 14px;
+          color: var(--ion-color-medium);
+          text-align: center;
+        }
+      }
+
+      .add-game-information {
+        display: flex;
+        flex-flow: column;
+        margin-top: 5px;
+
+        mat-label.header {
+          font-size: 18px;
+          color: var(--ion-color-dark);
+        }
+
+        mat-label.subheader {
+          margin-top: 8px;
+          font-size: 14px;
+          color: var(--ion-color-medium);
+        }
+      }
+    }
+
+    .new-game {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0px;
+      border-radius: var(--mdc-elevated-card-container-shape);
+      background-color: var(--ion-color-primary);
+
+      mat-icon {
+        width: 14px;
+        height: 14px;
+        font-size: 14px;
+        margin-right: 6px;
+      }
+
+      mat-label {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+
+
+/**
+ * BARRA DE ACCIONES DISPONIBLES
+ */
+.session-actions {
+  margin: 45px 0px;
+}
+
+
+
+/*
+ * TABLAS SWIPER CON UNA CABECERA
+ */
+#background mat-card mat-card-content.swiper-table-with-header-container {
+  padding: 12px;
+  padding-top: 10px;
+}
+
+// Configura los estilos del swiper
+swiper-container.swiper-table-with-header.swiper-header {
+  padding: 3px;
+  border-radius: 10px;
+  background-color: var(--ion-background-color, #fff);
+
+  swiper-slide {
+    height: 35px;
+    border-radius: 10px;
+
+    div.swiper-header-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 7px;
+
+      mat-label {
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
+
+  // Al slider que tiene la cabecera activa se activa el color gris, indicando que está seleccionado
+  .show-active-slide {
+    border-radius: 10px;
+    background-color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+  }
+}
+
+// Modela la tabla con información de los participantes de la sesión
+.user-information-table {
   display: flex;
-  align-items: center;
-  color: var(--ion-color-medium);
+  flex-flow: column;
+  margin: 12px 8px;
+  margin-bottom: 0px;
+}
+
+.user-information-table .table-item {
+  display: flex;
   margin-top: 10px;
-  margin-bottom: 5px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  padding: 10px 7px;
+  align-items: center;
 
-  mat-icon {
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    margin: 0px 8px;
+  img {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
   }
 
-  mat-label {
-    margin-top: 2px;
-    font-size: 15px;
+  img.left-image {
+    margin-right: 20px;
   }
+
+  img.right-image {
+    margin-left: 20px;
+  }
+
+  .table-item-description {
+    display: flex;
+    flex-flow: column;
+    margin-top: 4px;
+    overflow: hidden;
+
+    // Label inferior (Color gris)
+    mat-label {
+      font-size: 14px;
+      color: var(--ion-color-medium);
+      @extend .text-overflow;
+    }
+  }
+
+  // Label superior (Color blanco)
+  .table-item-description mat-label:first-child {
+    font-size: 18px;
+    color: var(--ion-color-dark);
+    margin-bottom: 5px;
+  }
+}
+
+.user-information-table .table-actions {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
 }

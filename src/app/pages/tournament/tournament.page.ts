@@ -28,16 +28,22 @@ export class Tournament implements AfterViewInit {
   @ViewChild('leaderboardSwiperBody', { static: false }) leaderboardSwiperBody!: ElementRef;
   public activeInformationSwiperHeader: number = 0;
 
+  public sessionOn: boolean = false; // TODO - BORRAR TRAS LAS PRUEBAS
+
   constructor(private utils: UtilsService) { }
 
   ngAfterViewInit() {
     this.calculateDescriptionHeight();
     this.startInformationSwiperHeader(this.leaderboardSwiperHeader);
     this.startInformationSwiperBody(this.leaderboardSwiperBody);
+
+
+    // this.sessionOn = Math.round(Math.random()) == 0 ? false : true; // TODO - BORRAR TRAS LAS PRUEBAS
+    this.sessionOn = true;
   }
 
   navigateToSession() {
-    this.utils.navigateReplacingUrl('tournament/game-session');
+    // this.utils.navigateReplacingUrl('tournament/game-session');
   }
 
   refreshGameSession(refreshEvent: any) {

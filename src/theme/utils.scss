@@ -60,13 +60,11 @@ mat-card.no-color {
       display: none;
     }
 
-    -ms-overflow-style: none;
-    /* Eliminar barra de scroll para Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Eliminar barra de scroll para  Firefox */
+    -ms-overflow-style: none; // Eliminar barra de scroll para Internet Explorer 10+
+    scrollbar-width: none; // Eliminar barra de scroll para  Firefox
   }
 
-    // El carrusel de acciones disponibles NO puede hacer scroll (Porque tiene pocos elementos, los elementos se alinean al centro)
+  // El carrusel de acciones disponibles NO puede hacer scroll (Porque tiene pocos elementos, los elementos se alinean al centro)
   .card-carrousel:not(.scroll-carrousel) {
     width: 100%;
     justify-content: center;

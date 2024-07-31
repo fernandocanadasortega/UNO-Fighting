@@ -80,6 +80,7 @@ mat-chip-set {
       }
 
       img {
+        min-width: 20px;
         width: 20px;
         object-fit: contain;
         margin-right: 10px;
@@ -91,6 +92,24 @@ mat-chip-set {
       }
     }
   }
+
+  mat-chip:first-of-type {
+    margin-left: 0px;
+  }
+}
+
+:host ::ng-deep mat-chip-set div.mdc-evolution-chip-set__chips {
+  flex-flow: nowrap;
+  overflow-x: auto;
+  margin-left: 0px;
+
+  ::-webkit-scrollbar {
+    /* Eliminar barra de scroll para Safari and Chrome */
+    display: none;
+  }
+
+  -ms-overflow-style: none; // Eliminar barra de scroll para Internet Explorer 10+
+  scrollbar-width: none; // Eliminar barra de scroll para  Firefox
 }
 
 
@@ -99,7 +118,7 @@ mat-chip-set {
  * INICIAR SESIÓN
  */
 mat-card.add-game-container {
-  margin-top: 35px;
+  margin-top: 30px;
 
   mat-card-content {
     padding: 0px;
@@ -134,7 +153,8 @@ mat-card.add-game-container {
 
         .icon-container>img {
           width: 50px;
-          object-fit: contain;
+          height: 50px;
+          border-radius: 100%;
           filter: invert(3%) sepia(17%) saturate(14%) hue-rotate(314deg) brightness(97%) contrast(81%);
         }
 
@@ -182,6 +202,64 @@ mat-card.add-game-container {
         font-size: 13px;
       }
     }
+
+    .new-game.on-live {
+      padding: 7px 0px;
+      background-color: var(--ion-color-success);
+
+      img.on-live-icon {
+        width: 14px;
+        height: 14px;
+        margin-right: 8px;
+        filter: invert(12%) sepia(8%) saturate(647%) hue-rotate(182deg) brightness(96%) contrast(94%); // Siempre es negro da igual el tema de la aplicación
+        animation: flashing-red-img 3s infinite;
+      }
+
+      mat-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #222428; // Siempre es negro da igual el tema de la aplicación
+        animation: flashing-red-label 3s infinite;
+      }
+    }
+  }
+}
+
+@keyframes flashing-red-img {
+  0% { // Debe ser de color negro al inicio y al final del bucle de animación para que no haya cambios bruscos de color
+    filter: invert(12%) sepia(8%) saturate(647%) hue-rotate(182deg) brightness(96%) contrast(94%); // Siempre es negro da igual el tema de la aplicación
+  }
+
+  40% { // Pongo el color rojo en el 40% y 60% para que esté mas tiempo el color rojo en pantalla// Pongo el color rojo en el 40% y 60% para que esté mas tiempo el color rojo en pantalla
+    filter: invert(32%) sepia(72%) saturate(3255%) hue-rotate(334deg) brightness(107%) contrast(84%);  // Color rojo
+  }
+
+  60% { // Pongo el color rojo en el 40% y 60% para que esté mas tiempo el color rojo en pantalla
+    filter: invert(32%) sepia(72%) saturate(3255%) hue-rotate(334deg) brightness(107%) contrast(84%);  // Color rojo
+  }
+
+  100% { // Debe ser de color negro al inicio y al final del bucle de animación para que no haya cambios bruscos de color
+    filter: invert(12%) sepia(8%) saturate(647%) hue-rotate(182deg) brightness(96%) contrast(94%); // Siempre es negro da igual el tema de la aplicación
+  }
+}
+
+@keyframes flashing-red-label {
+  0% { // Debe ser de color negro al inicio y al final del bucle de animación para que no haya cambios bruscos de color
+    color: #222428; // Siempre es negro da igual el tema de la aplicación
+    font-weight: normal;
+  }
+
+  40% { // Pongo el color rojo en el 40% y 60% para que esté mas tiempo el color rojo en pantalla
+    color: var(--ion-color-danger); // Color rojo
+  }
+
+  60% { // Pongo el color rojo en el 40% y 60% para que esté mas tiempo el color rojo en pantalla
+    color: var(--ion-color-danger); // Color rojo
+  }
+
+  100% { // Debe ser de color negro al inicio y al final del bucle de animación para que no haya cambios bruscos de color
+    color: #222428; // Siempre es negro da igual el tema de la aplicación
+    font-weight: normal;
   }
 }
 
@@ -191,7 +269,7 @@ mat-card.add-game-container {
  * BARRA DE ACCIONES DISPONIBLES
  */
 .session-actions {
-  margin: 45px 0px;
+  margin: 40px 0px;
 }
 
 

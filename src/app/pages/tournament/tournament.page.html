@@ -31,19 +31,25 @@
 
       <!-- INFORMACIÓN ADICIONAL DEL TORNEO -->
       <mat-chip-set>
-        <mat-chip matTooltip="Ubicación">
+        <mat-chip>
           <div class="chip-container">
             <mat-icon>location_on</mat-icon>
             <mat-label>Piscina de Caña</mat-label>
           </div>
         </mat-chip>
-        <mat-chip matTooltip="Número de sesiones">
+        <mat-chip>
           <div class="chip-container">
             <img src="assets/images/swords-cross-small.svg">
             <mat-label>28</mat-label>
           </div>
         </mat-chip>
-        <mat-chip matTooltip="Número de jugadores">
+        <mat-chip>
+          <div class="chip-container">
+            <mat-icon>person</mat-icon>
+            <mat-label>10</mat-label>
+          </div>
+        </mat-chip>
+        <mat-chip>
           <div class="chip-container">
             <mat-icon>person</mat-icon>
             <mat-label>10</mat-label>
@@ -53,24 +59,47 @@
 
 
       <!-- INICIAR SESIÓN -->
-      <mat-card class="add-game-container">
-        <mat-card-content>
+      <mat-card class="add-game-container" *ngIf="!sessionOn">
+        <mat-card-content (click)="navigateToSession()">
           <div class="add-game" matRipple>
             <div class="add-game-icon-display">
               <div class="icon-container">
                 <img src="assets/images/swords-cross-small.svg">
               </div>
-              <mat-label>Ubicación seleccionada</mat-label>
+              <mat-label>Seleccionar ubicación</mat-label>
             </div>
             <div class="add-game-information">
               <mat-label class="header">Nueva sesión</mat-label>
-              <mat-label class="subheader">Solo se registran los jugadores en las tres primeras posiciones, por debajo
-                de estas se registra como partida perdida.</mat-label>
+              <mat-label class="subheader">Crea una sesión a la que se pueden unir todos los participantes del torneo.</mat-label>
+              <mat-label class="subheader"><b>Solo se puede crear una sesión a la vez.</b></mat-label>
             </div>
           </div>
           <div class="new-game" matRipple>
             <mat-icon>add</mat-icon>
-            <mat-label>Iniciar sesión</mat-label>
+            <mat-label>Crear sesión</mat-label>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- TODO - BORRAR TRAS LAS PRUEBAS -->
+      <mat-card class="add-game-container" *ngIf="sessionOn">
+        <mat-card-content (click)="navigateToSession()">
+          <div class="add-game" matRipple>
+            <div class="add-game-icon-display">
+              <div class="icon-container">
+                <img src="assets/images/playa.png">
+              </div>
+              <mat-label>Playa de caña</mat-label>
+            </div>
+            <div class="add-game-information">
+              <mat-label class="header">Sesión en curso</mat-label>
+              <mat-label class="subheader">Accede a la sesión en curso para añadir nuevos registros de partidas.</mat-label>
+              <mat-label class="subheader"><b>Finalizar la sesión actual para poder crear una nueva sesión.</b></mat-label>
+            </div>
+          </div>
+          <div class="new-game on-live" matRipple>
+            <img src="assets/images/swords-cross-small.svg" class="on-live-icon">
+            <mat-label>Acceder a la sesión</mat-label>
           </div>
         </mat-card-content>
       </mat-card>

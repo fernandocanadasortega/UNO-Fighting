@@ -111,7 +111,8 @@ mat-card.add-game-container {
 
         .icon-container>img {
           width: 50px;
-          object-fit: contain;
+          height: 50px;
+          border-radius: 100%;
           filter: invert(3%) sepia(17%) saturate(14%) hue-rotate(314deg) brightness(97%) contrast(81%);
         }
 

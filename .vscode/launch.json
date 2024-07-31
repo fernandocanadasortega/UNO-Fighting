@@ -10,6 +10,14 @@
             "name": "Chrome 8100",
             "url": "http://localhost:8100",
             "webRoot": "${workspaceFolder}"
-        }
+        },
+        {
+          "type": "firefox",
+          "request": "launch",
+          "name": "Firefox 8100",
+          "url": "http://localhost:8100",
+          "webRoot": "${workspaceFolder}",
+          "reAttach": true
+      }
     ]
 }

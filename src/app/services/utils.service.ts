@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Themes } from '../interfaces/themes';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { genSaltSync, hashSync } from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class UtilsService {
 
   public themes = Themes;
   public systemTheme: Themes = Themes.DARK;
+  public serverBaseURL: string = 'http://localhost:3000';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     // Check system current theme
@@ -57,5 +59,10 @@ export class UtilsService {
   public navigateSavingUrlState(route: string, payload?: any) {
     if (payload) this.router.navigate([route, payload], { replaceUrl: false }); // Para que se envíe con exito debes mandar el payload como objeto (ej: un json) y no como un primitivo (ej: number, string). Obtener datos (route: ActivatedRoute): this.route.params.pipe(take(1)).subscribe((params: Params) => params;
     else this.router.navigate([route], { replaceUrl: false });
+  }
+
+  public createHash(textToEncrypt: string): string {
+    const salt = genSaltSync(10);
+    return hashSync(textToEncrypt, salt);
   }
 }

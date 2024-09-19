@@ -4,33 +4,32 @@
       [src]="utils.systemTheme == utils.themes.DARK ? 'assets/images/Icon-white.png' : 'assets/images/Icon-black.png'">
   </div>
 
-  <div id="register-form">
+  <form id="register-form" [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>{{ 'email' | translate }}</mat-label>
-      <input matInput placeholder="example@gmail.com">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'username' | translate }}</mat-label>
-      <input matInput placeholder="UNO Master">
+      <input matInput formControlName="email" placeholder="example@gmail.com">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'password' | translate }}</mat-label>
-      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="••••••••••••••">
+      <input matInput formControlName="password" [type]="showPassword ? 'text' : 'password'"
+        placeholder="••••••••••••••">
       <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'repeat_password' | translate }}</mat-label>
-      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="••••••••••••••">
+      <input matInput formControlName="repeat_password" [type]="showPassword ? 'text' : 'password'"
+        placeholder="••••••••••••••">
       <mat-icon matSuffix [class.show-password]="showPassword" (click)="toggleShowPassword()">visibility</mat-icon>
     </mat-form-field>
 
-    <button mat-flat-button color="accent" id="register">
+    <password-strength-requirements [updatePasswordScore]="form.get('password')?.value"></password-strength-requirements>
+
+    <button mat-flat-button color="accent" id="register" (click)="registerUser()">
       <mat-label>{{ 'register' | translate }}</mat-label>
     </button>
-  </div>
+  </form>
 
   <div id="footer">
     <div>

@@ -11,5 +11,20 @@
   "new_user_link": "Create account",
   "username": "Username",
   "have_account_label": "Already have account?",
-  "have_account_link": "Log in"
+  "have_account_link": "Log in",
+  "password_strength": "Password strength",
+  "empty": "Empty",
+  "very_weak": "Very weak",
+  "weak": "Weak",
+  "normal": "Normal",
+  "strong": "Strong",
+  "very_strong": "Very strong",
+  "password_composition": "Password composition",
+  "password_composition_body": "A strong password must have at least these characters",
+  "password_composition_length": "At least 12 characters",
+  "password_composition_lowercase": "Lowercase",
+  "password_composition_uppercase": "Uppercase",
+  "password_composition_symbols": "Symbols (?#@...)",
+  "password_composition_numbers": "Numbers",
+  "passwords_dont_match": "Passwords do not match"
 }

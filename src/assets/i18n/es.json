@@ -11,5 +11,20 @@
   "new_user_link": "Crear cuenta",
   "username": "Nombre de usuario",
   "have_account_label": "¿Ya tienes una cuenta?",
-  "have_account_link": "Iniciar sesión"
+  "have_account_link": "Iniciar sesión",
+  "password_strength": "Fortaleza de la contraseña",
+  "empty": "Vacío",
+  "very_weak": "Muy débil",
+  "weak": "Débil",
+  "normal": "Normal",
+  "strong": "Fuerte",
+  "very_strong": "Muy fuerte",
+  "password_composition": "Composición de la contraseña",
+  "password_composition_body": "Una contraseña segura debe contener al menos los siguientes caracteres",
+  "password_composition_length": "Al menos 12 caracteres de longitud",
+  "password_composition_lowercase": "Minúsculas",
+  "password_composition_uppercase": "Mayúsculas",
+  "password_composition_symbols": "Símbolos (?#@...)",
+  "password_composition_numbers": "Números",
+  "passwords_dont_match": "Las contraseñas no coinciden"
 }

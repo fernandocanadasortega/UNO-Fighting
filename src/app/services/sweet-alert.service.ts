@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import Swal, { SweetAlertOptions, SweetAlertResult } from 'sweetalert2';
+// import Swal, { SweetAlertOptions, SweetAlertResult } from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class SweetAlertService {
    * @param options Opciones seleccionadas del Sweet Alert
    * @returns Promesa con los resultados del popup
    */
-  showSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
+  /* showSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
     // Establecer valores por defecto
     options.backdrop = true;
 
@@ -53,14 +53,14 @@ export class SweetAlertService {
     }
 
     return Swal.fire(options);
-  }
+  } */
 
   /**
    * Muestra un toast en una parte de la pantalla
    * @param options Opciones seleccionadas del Sweet Alert
    * @returns Promesa con los resultados del toast
    */
-  toastSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
+/*   toastSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
     options.toast = true;
     options.didOpen = (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -77,14 +77,14 @@ export class SweetAlertService {
     if (options.title) options.title = this.languageService.instant(options.title!.toString());
 
     return Swal.fire(options);
-  }
+  } */
 
   /**
    * Muestra un popup de carga de Sweet Alert
    * @param options Opciones seleccionadas del Sweet Alert
    * @returns Promesa con los resultados del popup
    */
-  loadingSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
+  /* loadingSwal(options: SweetAlertOptions): Promise<SweetAlertResult<any>> {
     options.didOpen = () => Swal.showLoading();
 
     // Establecer valores por defecto
@@ -99,19 +99,19 @@ export class SweetAlertService {
     if (options.text) options.text = this.languageService.instant(options.text!.toString());
 
     return Swal.fire(options);
-  }
+  } */
 
   /**
    * Resetea el tiempo restante para que se cierre el popup de carga
    */
-  resetLoadingSwal() {
+  /* resetLoadingSwal() {
     Swal.increaseTimer(this.requestTimeout - <number>Swal.getTimerLeft())
-  }
+  } */
 
   /**
    * Cierra el popup de Sweet alert activo
    */
-  dismissSwal() {
+  /* dismissSwal() {
     Swal.close();
-  }
+  } */
 }

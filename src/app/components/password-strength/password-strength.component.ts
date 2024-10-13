@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialComponentsModule } from '../../material-components.module';
+import '../../../assets/expansion-overlay/expansion-overlay.js';
 
 export class PasswordStrengthTypes {
   static readonly EMPTY = { requieredScore: 0, value: 'empty', icon: 'remove_moderator' };
@@ -34,12 +35,12 @@ export interface PasswordStrengthRequirement {
   templateUrl: './password-strength.component.html',
   styleUrls: ['./password-strength.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule, MaterialComponentsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule, MaterialComponentsModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PasswordStrengthComponent {
 
   @Input() set updatePasswordScore(password: string) {
-    console.log(password);
     this.verifyPasswordStrength(password);
   };
 
@@ -60,8 +61,66 @@ export class PasswordStrengthComponent {
     { testId: PasswordRequierements.NUMBERS, testName: 'password_composition_numbers', testSuccess: false }
   ];
 
-  constructor(
-  ) { }
+  public strengthOverlayVisible: boolean = false;
+  public a = 'arriba';
+
+  constructor() {
+    setTimeout(() => this.a = 'abajo', 3000);
+  }
+
+  getHtmlElements(): { strengthCard: HTMLElement, passwordComposition: HTMLElement, backdrop: HTMLElement } | null {
+    const strengthCard = document.getElementById('strength-container-card');
+    if (strengthCard == null) {
+      return null;
+    }
+
+    const passwordComposition = document.getElementById('password-composition');
+    if (passwordComposition == null) {
+      return null;
+    }
+
+    const backdrop = document.getElementById('backdrop');
+    if (backdrop == null) {
+      return null;
+    }
+
+    return { strengthCard, passwordComposition, backdrop }
+  }
+
+  showPasswordStrength() {
+    if (this.getHtmlElements() == null) {
+      console.warn('No se puede mostrar el overlay de contraseña');
+      return;
+    }
+
+    const { strengthCard, passwordComposition, backdrop } = this.getHtmlElements()!;
+    const strengthCardRect = strengthCard.getBoundingClientRect();
+    console.log(strengthCardRect);
+    const passwordCompositionRect = passwordComposition.getBoundingClientRect();
+    console.log(passwordCompositionRect);
+    const yPosition = strengthCardRect.top - passwordCompositionRect.height + 4; // Añado 4px de margen para que no se quede demasiado separado el overlay
+    passwordComposition.style.height = '0vh';
+    passwordComposition.style.top = `${yPosition}px`;
+    passwordComposition.style.visibility = 'visible';
+    passwordComposition.style.height = 'fit-content';
+
+    backdrop.style.visibility = 'visible';
+    backdrop.style.opacity = '0.52';
+    this.strengthOverlayVisible = true;
+  }
+
+  hidePasswordStrength() {
+    if (this.getHtmlElements() == null) {
+      console.warn('No se puede mostrar el overlay de contraseña');
+      return;
+    }
+
+    const { strengthCard, passwordComposition, backdrop } = this.getHtmlElements()!;
+    passwordComposition.style.visibility = 'hidden';
+    backdrop.style.opacity = '0';
+    setTimeout(() => { backdrop.style.visibility = 'hidden' }, 250); // Espera los 0.3s de transición antes de ocultar el overlay
+    this.strengthOverlayVisible = false;
+  }
 
   /**
    * Valora la fortaleza de la contraseña

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
@@ -38,7 +38,7 @@ export interface PasswordStrengthRequirement {
   imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule, MaterialComponentsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class PasswordStrengthComponent {
+export class PasswordStrengthComponent implements AfterViewInit {
 
   @Input() set updatePasswordScore(password: string) {
     this.verifyPasswordStrength(password);
@@ -62,10 +62,12 @@ export class PasswordStrengthComponent {
   ];
 
   public strengthOverlayVisible: boolean = false;
-  public a = 'arriba';
 
-  constructor() {
-    setTimeout(() => this.a = 'abajo', 3000);
+  constructor() {  }
+
+  ngAfterViewInit(): void {
+    console.log('password-strength-component');
+    console.log(document.getElementById('strength-container-card'));
   }
 
   getHtmlElements(): { strengthCard: HTMLElement, passwordComposition: HTMLElement, backdrop: HTMLElement } | null {

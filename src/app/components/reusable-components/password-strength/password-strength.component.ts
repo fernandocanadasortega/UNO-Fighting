@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { MaterialComponentsModule } from '../../material-components.module';
-import '../../../assets/expansion-overlay/expansion-overlay.js';
+import { MaterialComponentsModule } from '../../../material-components.module';
+import { ExpansionOverlay } from '../expansion-overlay/expansion-overlay.component';
+// import 'expansion-overlay/expansion-overlay.js';
 
 export class PasswordStrengthTypes {
   static readonly EMPTY = { requieredScore: 0, value: 'empty', icon: 'remove_moderator' };
@@ -35,10 +36,10 @@ export interface PasswordStrengthRequirement {
   templateUrl: './password-strength.component.html',
   styleUrls: ['./password-strength.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule, MaterialComponentsModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule, MaterialComponentsModule, ExpansionOverlay],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class PasswordStrengthComponent implements AfterViewInit {
+export class PasswordStrengthComponent {
 
   @Input() set updatePasswordScore(password: string) {
     this.verifyPasswordStrength(password);
@@ -64,11 +65,6 @@ export class PasswordStrengthComponent implements AfterViewInit {
   public strengthOverlayVisible: boolean = false;
 
   constructor() {  }
-
-  ngAfterViewInit(): void {
-    console.log('password-strength-component');
-    console.log(document.getElementById('strength-container-card'));
-  }
 
   getHtmlElements(): { strengthCard: HTMLElement, passwordComposition: HTMLElement, backdrop: HTMLElement } | null {
     const strengthCard = document.getElementById('strength-container-card');

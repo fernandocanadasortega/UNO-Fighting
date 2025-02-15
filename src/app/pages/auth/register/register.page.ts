@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MaterialComponentsModule } from '../../../material-components.module';
 import { UtilsService } from '../../../services/utils.service';
-import { PasswordStrengthComponent } from 'src/app/components/password-strength/password-strength.component';
+import { PasswordStrengthComponent } from '../../../components/reusable-components/password-strength/password-strength.component';
 
 @Component({
   selector: 'register',

@@ -6,22 +6,23 @@ ion-content::part(scroll) {
 
 #header {
   display: flex;
-  flex: 0 0 20%;
+  flex-grow: 0.5;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 35px;
 }
 
 #header>img {
   width: 25%;
   max-height: 20vh;
   object-fit: contain;
+  margin-top: 20px;
 }
 
 #register-form {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  flex: 1 1 80%;
 }
 
 #register-form>mat-form-field mat-icon {
@@ -63,7 +64,8 @@ ion-content::part(scroll) {
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
-  flex: 0 0 20%;
+  flex-grow: 1;
+  margin-top: 35px;
 }
 
 #footer>div {
